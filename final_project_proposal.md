@@ -1,6 +1,6 @@
-P8105 Final Project Proposal
-================
-Xinwen Guo (xg2489), Yutong Li (yl6371), Ziang Zhang (zz3593)
+
+**P8105 Final Project Proposal** · Xinwen Guo (xg2489), Yutong Li
+(yl6371), Ziang Zhang (zz3593)
 
 ## Tentative Project Title
 
@@ -16,21 +16,12 @@ Outcomes
 - **Ziang Zhang (zz3593):** website development, programming, and data
   cleaning
 
-All members will review each other’s code and contribute to the final
-report and screencast.
-
 ## Motivation
 
-Our interest in this project stems from our undergraduate backgrounds in
-pharmacy and applied mathematics. Building on Yutong’s previous research
-experience in liver cancer, we hope to apply statistical and data
-science methods to clinically meaningful questions. Liver cancer remains
-a major global health challenge, and understanding the factors
-associated with patient outcomes is of particular interest to us. The
-COVID-19 pandemic introduced additional challenges to cancer care,
-raising concerns about disruptions in diagnosis, treatment, and
-survival. These concerns motivated us to explore how liver cancer care
-differed before and during the pandemic.
+Building on our backgrounds in pharmacy and applied mathematics, and
+Yutong’s prior research in liver cancer, we want to examine how the
+COVID-19 pandemic, which disrupted cancer diagnosis and treatment,
+changed liver cancer care and outcomes.
 
 ## Intended Final Products
 
@@ -43,16 +34,6 @@ two-minute screencast; and a GitHub repository with all code.
 We plan to use the *COVID-19 Effect on Liver Cancer Prediction Dataset*,
 publicly available on Kaggle:
 <https://www.kaggle.com/datasets/fedesoriano/covid19-effect-on-liver-cancer-prediction-dataset>
-
-The data was prospectively collected on all patients referred to the
-Newcastle-upon-Tyne NHS Foundation Trust (NUTH) hepatopancreatobiliary
-multidisciplinary team (HPB MDT) in the first 12 months of the pandemic
-(March 2020-February 2021), compared to a retrospective observational
-cohort of consecutive patients presenting in the 12 months immediately
-preceding it (March 2019-February 2020). All new cases with a diagnosis
-of hepatocellular carcinoma (HCC) or intrahepatic cholangiocarcinoma
-(ICC) confirmed radiologically or histologically, following
-international guidelines, were included.
 
 The dataset contains 450 patient records and 27 variables, including
 demographic characteristics, cancer staging, diagnostic and treatment
