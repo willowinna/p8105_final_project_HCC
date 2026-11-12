@@ -13,22 +13,12 @@ The [COVID-19 Effect on Liver Cancer Prediction Dataset](https://www.kaggle.com/
 
 ## Import
 
-```{r import, eval = FALSE}
-# TODO: put the Kaggle csv in data/ and update the file name
-liver_df =
-  read_csv("data/covid-liver.csv") |>
-  janitor::clean_names()
-```
+waiting for importing the data.
 
 ## Cleaning
 
-*TODO: recoding, factor levels, missing data, survival time and event indicator.*
-
-```{r clean, eval = FALSE}
-# TODO: cleaning steps
-# write_csv(liver_clean, "data/liver_clean.csv")
-```
+waiting for data cleaning
 
 ## Variables
 
-*TODO: short description of the key variables used in the analysis.*
+waiting for variables description.
