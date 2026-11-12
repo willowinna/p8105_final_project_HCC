@@ -1,6 +1,6 @@
 ---
 title: "P8105 Final Project Proposal"
-author: "Xinwen Guo (xg2489), Yutong Li (yl6371)"
+author: "Xinwen Guo (xg2489), Yutong Li (yl6371), Ziang Zhang (zz3593)"
 output: github_document
 ---
 
@@ -12,6 +12,7 @@ output: github_document
 
 - Xinwen Guo (xg2489)
 - Yutong Li (yl6371)
+- Ziang Zhang (zz3593)
 
 ## Motivatives
 
