@@ -7,7 +7,5 @@ output:
 
 Explore survival curves by period, cancer type, and stage.
 
-<!-- TODO: after deploying to shinyapps.io, replace the URL below -->
-<!-- <iframe src="https://USERNAME.shinyapps.io/APPNAME/" width="100%" height="800" frameborder="0"></iframe> -->
+deploying to shinyapps.io, waiting.
 
-*The app will be embedded here once deployed.*
