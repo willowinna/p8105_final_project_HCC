@@ -15,5 +15,4 @@ Final project for P8105 Data Science I (Fall 2026), Columbia Mailman School of P
 [COVID-19 Effect on Liver Cancer Prediction Dataset](https://www.kaggle.com/datasets/fedesoriano/covid19-effect-on-liver-cancer-prediction-dataset) (Kaggle): 450 patients referred to a Newcastle (UK) NHS trust between March 2019 and February 2021.
 
 ## Repository Contents
-
 - `final_project_proposal.Rmd` / `.md`: project proposal
