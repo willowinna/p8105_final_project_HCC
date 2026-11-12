@@ -1,6 +1,6 @@
 P8105 Final Project Proposal
 ================
-Xinwen Guo (xg2489), Yutong Li (yl6371)
+Xinwen Guo (xg2489), Yutong Li (yl6371), Ziang Zhang (zz3593)
 
 ## Tentative Project Title
 
@@ -12,6 +12,7 @@ Survival Outcomes**
 
 - Xinwen Guo (xg2489)
 - Yutong Li (yl6371)
+- Ziang Zhang (zz3593)
 
 ## Motivatives
 
