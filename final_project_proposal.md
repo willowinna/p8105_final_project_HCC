@@ -4,9 +4,9 @@ Xinwen Guo (xg2489), Yutong Li (yl6371), Ziang Zhang (zz3593)
 
 ## Tentative Project Title
 
-**Liver Cancer Care Before and During the COVID-19 Pandemic: A
-Comparative Analysis of Clinical Presentation, Treatment Patterns, and
-Survival Outcomes**
+Liver Cancer Care Before and During the COVID-19 Pandemic: A Comparative
+Analysis of Clinical Presentation, Treatment Patterns, and Survival
+Outcomes
 
 ## Group Members
 
@@ -47,7 +47,7 @@ publicly available on Kaggle:
 The data was prospectively collected on all patients referred to the
 Newcastle-upon-Tyne NHS Foundation Trust (NUTH) hepatopancreatobiliary
 multidisciplinary team (HPB MDT) in the first 12 months of the pandemic
-(March 2020-February 2021), comparing to a retrospective observational
+(March 2020-February 2021), compared to a retrospective observational
 cohort of consecutive patients presenting in the 12 months immediately
 preceding it (March 2019-February 2020). All new cases with a diagnosis
 of hepatocellular carcinoma (HCC) or intrahepatic cholangiocarcinoma
