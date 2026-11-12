@@ -15,12 +15,9 @@ liver_clean = read_csv("data/liver_clean.csv")
 
 ## Cohort Characteristics
 
-*TODO: descriptive table comparing pre-pandemic and pandemic cohorts.*
 
 ## Clinical Presentation
 
-*TODO: stage, tumor size, mode of presentation by period.*
 
 ## Treatment Patterns
 
-*TODO: treatment received and time to treatment by period.*
