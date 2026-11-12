@@ -14,16 +14,12 @@ liver_clean = read_csv("data/liver_clean.csv")
 
 ## Treatment Type
 
-*TODO: logistic regression with period as the main exposure.*
 
 ## Time to Treatment
 
-*TODO: linear model for (log) time to treatment.*
 
 ## Model Comparison
 
-*TODO: cross validation.*
 
 ## Bootstrap Confidence Intervals
 
-*TODO: bootstrapping for key estimates.*
