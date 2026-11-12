@@ -10,32 +10,41 @@ Survival Outcomes**
 
 ## Group Members
 
-- Xinwen Guo (xg2489)
-- Yutong Li (yl6371)
-- Ziang Zhang (zz3593)
+- **Xinwen Guo (xg2489):** statistical programming and modeling
+- **Yutong Li (yl6371):** data analysis, interpretation of statistical
+  results, and written report
+- **Ziang Zhang (zz3593):** website development, programming, and data
+  cleaning
 
-## Motivatives
+All members will review each other’s code and contribute to the final
+report and screencast.
+
+## Motivation
 
 Our interest in this project stems from our undergraduate backgrounds in
 pharmacy and applied mathematics. Building on Yutong’s previous research
-experience to liver cancer research, we hope to apply statistical and
-data science methods to explore clinically meaningful questions.
-Currently liver cancer still remains a major global health challenge,
-and understanding the factors associated with patient outcomes is of
-particular interest to us. The COVID-19 pandemic introduced additional
-challenges to cancer care, raising concerns about potential disruptions
-in diagnosis, treatment, and survival. These concerns motivated us to
-further explore how liver cancer care differed before and during the
-pandemic.
+experience in liver cancer, we hope to apply statistical and data
+science methods to clinically meaningful questions. Liver cancer remains
+a major global health challenge, and understanding the factors
+associated with patient outcomes is of particular interest to us. The
+COVID-19 pandemic introduced additional challenges to cancer care,
+raising concerns about disruptions in diagnosis, treatment, and
+survival. These concerns motivated us to explore how liver cancer care
+differed before and during the pandemic.
 
 ## Intended Final Products
 
-We plan to develop an project website featuring exploratory data
-analysis, related visualizations, statistical analyses, and key
-findings. We will also produce a comprehensive written report
-documenting data cleaning, exploratory analysis, modeling approaches,
-results, and limitations. All R code and supporting materials will be
-maintained in our GitHub repository.
+- A project website built with R Markdown, presenting our motivation,
+  exploratory analyses, interactive visualizations, statistical results,
+  and key findings
+- An interactive Shiny app for exploring survival and treatment patterns
+  across patient subgroups
+- A detailed written report, included as a page on the website,
+  documenting data cleaning, exploratory analysis, modeling approaches,
+  results, and limitations
+- A two-minute narrated screencast embedded in the website
+- A GitHub repository containing all R code and supporting materials,
+  linked from the website’s landing page
 
 ## Anticipated Data Sources
 
@@ -67,15 +76,13 @@ information, and survival outcomes.
 
 ## Planned timeline
 
-Before 11.15: Finish data cleaning and preprocessing and descriptive
-analysis and EDA.
-
-11.16 - 11.22: modeling and evaluation
-
-11.23 - 11.29: webpage building and filling
-
-11.30 - 12.6: webpage and screencast
-
-12.6: Our report webpage, screencast DDL
-
-12.12: Written report, webpage, screencast DDL
+| Dates | Tasks |
+|----|----|
+| Nov 13 | Submit proposal |
+| Nov 13–17 | Data cleaning, descriptive tables, and EDA; set up GitHub repo and website skeleton |
+| Nov 16–20 | Project review meeting with teaching team |
+| Nov 18–22 | Regression, cross validation, bootstrapping, and survival analysis |
+| Nov 23–26 | Build website content, `plotly` figures, and Shiny app; draft report |
+| Nov 27–30 | Finalize report and website, record screencast, final code review |
+| Nov 30 | All project materials complete |
+| Dec 12 | Submit report, website, screencast, and peer assessments (official deadline) |
