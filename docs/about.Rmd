@@ -1,0 +1,14 @@
+---
+title: "About"
+output:
+  html_document:
+    toc: false
+---
+
+## Team
+
+- **Xinwen Guo** (xg2489): statistical programming and modeling
+- **Yutong Li** (yl6371): data analysis, interpretation of results, and written report
+- **Ziang Zhang** (zz3593): website, programming, and data cleaning
+
+This project was completed for P8105 Data Science I at the Columbia Mailman School of Public Health, Fall 2026.

@@ -1,0 +1,19 @@
+---
+title: "Project Report"
+---
+
+Xinwen Guo (xg2489), Yutong Li (yl6371), Ziang Zhang (zz3593)
+
+## Motivation
+
+## Related Work
+
+## Initial Questions
+
+## Data
+
+## Exploratory Analysis
+
+## Additional Analysis
+
+## Discussion

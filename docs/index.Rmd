@@ -1,0 +1,23 @@
+---
+title: "Liver Cancer Care Before and During the COVID-19 Pandemic"
+output:
+  html_document:
+    toc: false
+---
+
+Xinwen Guo, Yutong Li, Ziang Zhang · P8105 Data Science I, Fall 2026
+## Overview
+
+
+## Key Findings
+
+
+## Explore
+
+- [Data](data.html): source and cleaning
+- [EDA](eda.html): how the two cohorts compare
+- [Regression](regression.html) and [Survival Analysis](survival.html)
+- [Shiny App](shiny.html): explore survival by subgroup
+- [Full Report](report.html)
+
+GitHub repository: <https://github.com/willowinna/p8105_final_project_HCC>

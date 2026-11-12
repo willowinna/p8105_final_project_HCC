@@ -1,0 +1,25 @@
+---
+title: "Regression Analysis"
+---
+
+```{r setup, include = FALSE}
+library(tidyverse)
+library(modelr)
+knitr::opts_chunk$set(message = FALSE, warning = FALSE)
+```
+
+```{r load, eval = FALSE}
+liver_clean = read_csv("data/liver_clean.csv")
+```
+
+## Treatment Type
+
+
+## Time to Treatment
+
+
+## Model Comparison
+
+
+## Bootstrap Confidence Intervals
+

@@ -1,0 +1,23 @@
+---
+title: "Exploratory Analysis"
+---
+
+```{r setup, include = FALSE}
+library(tidyverse)
+library(plotly)
+knitr::opts_chunk$set(message = FALSE, warning = FALSE, fig.width = 8, fig.asp = 0.6)
+theme_set(theme_minimal() + theme(legend.position = "bottom"))
+```
+
+```{r load, eval = FALSE}
+liver_clean = read_csv("data/liver_clean.csv")
+```
+
+## Cohort Characteristics
+
+
+## Clinical Presentation
+
+
+## Treatment Patterns
+

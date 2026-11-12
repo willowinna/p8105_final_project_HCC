@@ -1,0 +1,11 @@
+---
+title: "Shiny App"
+output:
+  html_document:
+    toc: false
+---
+
+Explore survival curves by period, cancer type, and stage.
+
+deploying to shinyapps.io, waiting.
+

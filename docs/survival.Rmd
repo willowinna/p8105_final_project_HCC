@@ -1,0 +1,21 @@
+---
+title: "Survival Analysis"
+---
+
+```{r setup, include = FALSE}
+library(tidyverse)
+library(survival)
+knitr::opts_chunk$set(message = FALSE, warning = FALSE)
+```
+
+```{r load, eval = FALSE}
+liver_clean = read_csv("data/liver_clean.csv")
+```
+
+## Kaplan–Meier Curves
+
+waiting for survival curve
+
+## Cox Proportional Hazards Model
+
+waiting for cox 

@@ -1,0 +1,24 @@
+---
+title: "Data"
+---
+
+```{r setup, include = FALSE}
+library(tidyverse)
+knitr::opts_chunk$set(message = FALSE, warning = FALSE)
+```
+
+## Source
+
+The [COVID-19 Effect on Liver Cancer Prediction Dataset](https://www.kaggle.com/datasets/fedesoriano/covid19-effect-on-liver-cancer-prediction-dataset) (Kaggle): 450 patients with HCC or ICC referred to the Newcastle-upon-Tyne NHS Foundation Trust between March 2019 and February 2021.
+
+## Import
+
+waiting for importing the data.
+
+## Cleaning
+
+waiting for data cleaning
+
+## Variables
+
+waiting for variables description.
