@@ -1,0 +1,34 @@
+---
+title: "Data"
+---
+
+```{r setup, include = FALSE}
+library(tidyverse)
+knitr::opts_chunk$set(message = FALSE, warning = FALSE)
+```
+
+## Source
+
+The [COVID-19 Effect on Liver Cancer Prediction Dataset](https://www.kaggle.com/datasets/fedesoriano/covid19-effect-on-liver-cancer-prediction-dataset) (Kaggle): 450 patients with HCC or ICC referred to the Newcastle-upon-Tyne NHS Foundation Trust between March 2019 and February 2021.
+
+## Import
+
+```{r import, eval = FALSE}
+# TODO: put the Kaggle csv in data/ and update the file name
+liver_df =
+  read_csv("data/covid-liver.csv") |>
+  janitor::clean_names()
+```
+
+## Cleaning
+
+*TODO: recoding, factor levels, missing data, survival time and event indicator.*
+
+```{r clean, eval = FALSE}
+# TODO: cleaning steps
+# write_csv(liver_clean, "data/liver_clean.csv")
+```
+
+## Variables
+
+*TODO: short description of the key variables used in the analysis.*
