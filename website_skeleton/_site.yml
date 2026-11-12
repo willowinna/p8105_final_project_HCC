@@ -24,7 +24,7 @@ navbar:
       href: about.html
   right:
     - icon: fa-github fa-lg
-      href: https://github.com/USERNAME/p8105_final_project_HCC
+      href: https://github.com/willowinna/p8105_final_project_HCC
 output:
   html_document:
     theme: flatly
