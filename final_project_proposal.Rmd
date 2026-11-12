@@ -22,11 +22,7 @@ Our interest in this project stems from our undergraduate backgrounds in pharmac
 
 ## Intended Final Products
 
-- A project website built with R Markdown, presenting our motivation, exploratory analyses, interactive visualizations, statistical results, and key findings
-- An interactive Shiny app for exploring survival and treatment patterns across patient subgroups
-- A detailed written report, included as a page on the website, documenting data cleaning, exploratory analysis, modeling approaches, results, and limitations
-- A two-minute narrated screencast embedded in the website
-- A GitHub repository containing all R code and supporting materials, linked from the website's landing page
+An R Markdown website with interactive visualizations, key findings, and the full report; a Shiny app for exploring survival by subgroup; a two-minute screencast; and a GitHub repository with all code.
 
 ## Anticipated Data Sources
 
@@ -39,11 +35,13 @@ The dataset contains 450 patient records and 27 variables, including demographic
 
 ## Planned Analysis / Visualization / Coding Challenges
 
-- Data cleaning and preprocessing
-- Descriptive analysis
-- Exploratory data analysis
-- Statistical modeling and model evaluation
-- Interpretation and discussion
+We will ask whether clinical presentation, treatment patterns and timing, and survival differed between the two periods.
+
+- **Wrangling and EDA:** clean and recode variables (`janitor`, `forcats`); compare cohorts with descriptive tables, using functions and `purrr::map` to run tests across variables; `ggplot2` and `plotly` figures
+- **Regression:** logistic regression for treatment type and linear models for time to treatment, adjusting for age, sex, cancer type, and stage; cross validation to compare models; bootstrapping for confidence intervals
+- **Survival analysis:** Kaplan–Meier curves with log-rank tests and Cox proportional hazards models
+- **Challenges:** differing staging systems for the two cancer types, missing data, a small sample, and deploying the Shiny app
+
 
 ## Planned timeline
 
