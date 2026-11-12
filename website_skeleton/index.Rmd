@@ -6,17 +6,11 @@ output:
 ---
 
 Xinwen Guo, Yutong Li, Ziang Zhang · P8105 Data Science I, Fall 2026
-
-<!-- TODO: replace VIDEO_ID with the YouTube ID of the screencast -->
-<!-- <iframe width="720" height="405" src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe> -->
-
 ## Overview
 
-*TODO: two or three sentences on the motivation and main question.*
 
 ## Key Findings
 
-*TODO: three bullet points summarizing the main results.*
 
 ## Explore
 
