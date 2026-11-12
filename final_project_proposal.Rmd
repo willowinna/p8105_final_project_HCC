@@ -42,18 +42,13 @@ We will ask whether clinical presentation, treatment patterns and timing, and su
 - **Survival analysis:** Kaplan–Meier curves with log-rank tests and Cox proportional hazards models
 - **Challenges:** differing staging systems for the two cancer types, missing data, a small sample, and deploying the Shiny app
 
+## Planned Timeline
 
-## Planned timeline
-
-| Dates | Tasks |
-|---|---|
-| Nov 13 | Submit proposal |
-| Nov 13–17 | Data cleaning, descriptive tables, and EDA; set up GitHub repo and website skeleton |
-| Nov 16–20 | Project review meeting with teaching team |
-| Nov 18–22 | Regression, cross validation, bootstrapping, and survival analysis |
-| Nov 23–26 | Build website content, `plotly` figures, and Shiny app; draft report |
-| Nov 27–30 | Finalize report and website, record screencast, final code review |
-| Nov 30 | All project materials complete |
-| Dec 12 | Submit report, website, screencast, and peer assessments (official deadline) |
-
+- **Nov 13:** submit proposal
+- **Nov 13–17:** data cleaning, descriptive tables, and EDA; set up GitHub repo and website skeleton
+- **Nov 16–20:** project review meeting with teaching team
+- **Nov 18–22:** regression, cross validation, bootstrapping, and survival analysis
+- **Nov 23–26:** build website content, `plotly` figures, and Shiny app; draft report
+- **Nov 27–30:** finalize report and website, record screencast, final code review
+- **Dec 12:** submit report, website, screencast, and peer assessments (official deadline)
 
