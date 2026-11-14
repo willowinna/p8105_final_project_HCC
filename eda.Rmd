@@ -9,18 +9,170 @@ knitr::opts_chunk$set(message = FALSE, warning = FALSE, fig.width = 8, fig.asp =
 theme_set(theme_minimal() + theme(legend.position = "bottom"))
 ```
 
-```{r load, eval = FALSE}
-liver_clean = read_csv("data/liver_clean.csv")
+```{r data import}
+df = read_csv("data/liver_clean.csv") |>
+  mutate(
+    period = factor(period, levels = c("Pre-pandemic", "Pandemic"))
+  )
 ```
 
 ## Cohort Characteristics
 
 *TODO: descriptive table comparing pre-pandemic and pandemic cohorts.*
+```{r monthly distribution}
+df |> 
+  mutate(
+    date = as.Date(referral_month), 
+    month = format(date, "%m") 
+  ) |> 
+  count(period, month) |> 
+  ggplot(aes(x = month, y = n, fill = period)) +
+  geom_col(width = 0.7, show.legend = FALSE) +
+  facet_wrap(~ period, scales = "free_y") +
+  geom_text(aes(label = n), vjust = -0.5, size = 3) +
+  labs(
+    title = "Monthly Distribution of Diagnosed Patients",
+    x = "Month",
+    y = "Number of Patients"
+  ) +
+  theme_minimal()
+```
+
+
+```{r HCC&ICC counts}
+df |> 
+  count(period, cancer_type) |>
+  ggplot(aes(x = period, y = n, fill = cancer_type)) +
+  geom_col(position = "dodge", width = 0.6) +
+  geom_text(aes(label = n), position = position_dodge(0.6), vjust = -0.5, size = 4) +
+  labs(
+    title = "Comparison of HCC and ICC Counts Between Periods",
+    x = "Period",
+    y = "Number of Patients",
+    fill = "Cancer Type"
+  ) +
+  theme_minimal() 
+```
+
+```{r etiology}
+df |>
+  count(period, etiology) |>
+  group_by(period) |>
+  mutate(percentage = n / sum(n) * 100) |>
+  ggplot(aes(x = period, y = percentage, fill = etiology)) +
+  geom_col(position = "fill", width = 0.6) +
+  scale_y_continuous(labels = scales::percent) +
+  labs(
+    title = "Etiology Spectrum Comparison Between Periods",
+    x = "Period",
+    y = "Percentage",
+    fill = "Etiology"
+  ) +
+  theme_minimal() +
+  scale_fill_brewer(palette = "Paired")
+  
+```
+
+```{r tumor size & age}
+ggplot(df, aes(x = age, y = tumor_size, color = period)) +
+  geom_point(alpha = 0.6, size = 2) +
+  geom_smooth(method = "lm", se = TRUE, linetype = "dashed") + 
+  facet_wrap(~ period) +
+  labs(
+    title = "Age vs. Tumor Size Trends by Period",
+    x = "Age (Years)",
+    y = "Tumor Size (cm)",
+    color = "Period"
+  ) +
+  theme_minimal()
+```
+
+```{r}
+df |>
+  count(period, presentation) |>
+  group_by(period) |>
+  mutate(percentage = n / sum(n) * 100) |>
+  ggplot( aes(x = period, y = percentage, fill = presentation)) +
+  geom_col(position = "dodge", width = 0.5) +
+  geom_text(aes(label = sprintf("%.1f%%", percentage)), 
+            position = position_dodge(0.5), vjust = -0.5, size = 3.5) +
+  labs(
+    title = "Comparison of Incidental Cases Between Periods",
+    x = "Period",
+    y = "Percentage (%)",
+    fill = "Incidental Type"
+  ) +
+  theme_minimal()
+```
+
 
 ## Clinical Presentation
+
+
+```{r satge&presentation}
+df |> 
+  filter(!is.na(tnm_stage), !is.na(presentation)) |> 
+  count(tnm_stage, presentation) |> 
+  group_by(tnm_stage) |> 
+  mutate(percentage = n / sum(n) * 100) |> 
+  ungroup() |> 
+  ggplot(aes(x = tnm_stage, y = percentage, fill = presentation)) +
+  geom_col(position = "fill", width = 0.6) +
+  scale_y_continuous(labels = scales::percent_format()) +
+  labs(
+    title = "Proportion of Presentations Across TNM Stages",
+    x = "TNM Stage",
+    y = "Percentage",
+    fill = "Presentation"
+  ) +
+  theme_minimal() +
+  scale_fill_brewer(palette = "Set2")
+```
 
 *TODO: stage, tumor size, mode of presentation by period.*
 
 ## Treatment Patterns
-
 *TODO: treatment received and time to treatment by period.*
+
+```{r}
+df |> 
+  filter(!is.na(tnm_stage), !is.na(treatment)) |> 
+  count(tnm_stage, treatment) |> 
+  group_by(tnm_stage) |> 
+  mutate(percentage = n / sum(n) * 100) |> 
+  ungroup() |> 
+  ggplot(aes(x = tnm_stage, y = percentage, fill = treatment)) +
+  geom_col(position = "fill", width = 0.6) +
+  scale_y_continuous(labels = scales::percent_format()) +
+  labs(
+    title = "Treatment Distribution Across TNM Stages",
+    x = "TNM Stage",
+    y = "Percentage",
+    fill = "Treatment Type"
+  ) +
+  theme_minimal() +
+  scale_fill_brewer(palette = "Set2") 
+```
+
+```{r}
+df |> 
+  filter(!is.na(period), !is.na(tnm_stage), !is.na(treatment)) |> 
+  count(period, tnm_stage, treatment) |> 
+  group_by(period, tnm_stage) |> 
+  mutate(percentage = n / sum(n) * 100) |> 
+  ungroup() |> 
+  ggplot(aes(x = tnm_stage, y = percentage, fill = treatment)) +
+  geom_col(position = "fill", width = 0.6) +
+  facet_wrap(~ period) +
+  
+  scale_y_continuous(labels = scales::percent_format()) +
+  labs(
+    title = "Treatment Distribution Across TNM Stages by Period",
+    x = "TNM Stage",
+    y = "Percentage",
+    fill = "Treatment Type"
+  ) +
+  theme_minimal() +
+  scale_fill_brewer(palette = "Set2")
+```
+- Orthotopic Liver Transplantation became harder during the pandemic.

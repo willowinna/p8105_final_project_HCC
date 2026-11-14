@@ -388,20 +388,155 @@ div.tocify {
 </div>
 
 
-<pre class="r"><code>liver_clean = read_csv(&quot;data/liver_clean.csv&quot;)</code></pre>
+<pre class="r"><code>df = read_csv(&quot;data/liver_clean.csv&quot;) |&gt;
+  mutate(
+    period = factor(period, levels = c(&quot;Pre-pandemic&quot;, &quot;Pandemic&quot;))
+  )</code></pre>
 <div id="cohort-characteristics" class="section level2">
 <h2>Cohort Characteristics</h2>
 <p><em>TODO: descriptive table comparing pre-pandemic and pandemic
 cohorts.</em></p>
+<pre class="r"><code>df |&gt; 
+  mutate(
+    date = as.Date(referral_month), 
+    month = format(date, &quot;%m&quot;) 
+  ) |&gt; 
+  count(period, month) |&gt; 
+  ggplot(aes(x = month, y = n, fill = period)) +
+  geom_col(width = 0.7, show.legend = FALSE) +
+  facet_wrap(~ period, scales = &quot;free_y&quot;) +
+  geom_text(aes(label = n), vjust = -0.5, size = 3) +
+  labs(
+    title = &quot;Monthly Distribution of Diagnosed Patients&quot;,
+    x = &quot;Month&quot;,
+    y = &quot;Number of Patients&quot;
+  ) +
+  theme_minimal()</code></pre>
+<p><img src="eda_files/figure-html/monthly%20distribution-1.png" alt="" width="768" /></p>
+<pre class="r"><code>df |&gt; 
+  count(period, cancer_type) |&gt;
+  ggplot(aes(x = period, y = n, fill = cancer_type)) +
+  geom_col(position = &quot;dodge&quot;, width = 0.6) +
+  geom_text(aes(label = n), position = position_dodge(0.6), vjust = -0.5, size = 4) +
+  labs(
+    title = &quot;Comparison of HCC and ICC Counts Between Periods&quot;,
+    x = &quot;Period&quot;,
+    y = &quot;Number of Patients&quot;,
+    fill = &quot;Cancer Type&quot;
+  ) +
+  theme_minimal() </code></pre>
+<p><img src="eda_files/figure-html/HCC&ICC%20counts-1.png" alt="" width="768" /></p>
+<pre class="r"><code>df |&gt;
+  count(period, etiology) |&gt;
+  group_by(period) |&gt;
+  mutate(percentage = n / sum(n) * 100) |&gt;
+  ggplot(aes(x = period, y = percentage, fill = etiology)) +
+  geom_col(position = &quot;fill&quot;, width = 0.6) +
+  scale_y_continuous(labels = scales::percent) +
+  labs(
+    title = &quot;Etiology Spectrum Comparison Between Periods&quot;,
+    x = &quot;Period&quot;,
+    y = &quot;Percentage&quot;,
+    fill = &quot;Etiology&quot;
+  ) +
+  theme_minimal() +
+  scale_fill_brewer(palette = &quot;Paired&quot;)</code></pre>
+<p><img src="eda_files/figure-html/etiology-1.png" alt="" width="768" /></p>
+<pre class="r"><code>ggplot(df, aes(x = age, y = tumor_size, color = period)) +
+  geom_point(alpha = 0.6, size = 2) +
+  geom_smooth(method = &quot;lm&quot;, se = TRUE, linetype = &quot;dashed&quot;) + 
+  facet_wrap(~ period) +
+  labs(
+    title = &quot;Age vs. Tumor Size Trends by Period&quot;,
+    x = &quot;Age (Years)&quot;,
+    y = &quot;Tumor Size (cm)&quot;,
+    color = &quot;Period&quot;
+  ) +
+  theme_minimal()</code></pre>
+<p><img src="eda_files/figure-html/tumor%20size%20&%20age-1.png" alt="" width="768" /></p>
+<pre class="r"><code>df |&gt;
+  count(period, presentation) |&gt;
+  group_by(period) |&gt;
+  mutate(percentage = n / sum(n) * 100) |&gt;
+  ggplot( aes(x = period, y = percentage, fill = presentation)) +
+  geom_col(position = &quot;dodge&quot;, width = 0.5) +
+  geom_text(aes(label = sprintf(&quot;%.1f%%&quot;, percentage)), 
+            position = position_dodge(0.5), vjust = -0.5, size = 3.5) +
+  labs(
+    title = &quot;Comparison of Incidental Cases Between Periods&quot;,
+    x = &quot;Period&quot;,
+    y = &quot;Percentage (%)&quot;,
+    fill = &quot;Incidental Type&quot;
+  ) +
+  theme_minimal()</code></pre>
+<p><img src="eda_files/figure-html/unnamed-chunk-1-1.png" alt="" width="768" /></p>
 </div>
 <div id="clinical-presentation" class="section level2">
 <h2>Clinical Presentation</h2>
+<pre class="r"><code>df |&gt; 
+  filter(!is.na(tnm_stage), !is.na(presentation)) |&gt; 
+  count(tnm_stage, presentation) |&gt; 
+  group_by(tnm_stage) |&gt; 
+  mutate(percentage = n / sum(n) * 100) |&gt; 
+  ungroup() |&gt; 
+  ggplot(aes(x = tnm_stage, y = percentage, fill = presentation)) +
+  geom_col(position = &quot;fill&quot;, width = 0.6) +
+  scale_y_continuous(labels = scales::percent_format()) +
+  labs(
+    title = &quot;Proportion of Presentations Across TNM Stages&quot;,
+    x = &quot;TNM Stage&quot;,
+    y = &quot;Percentage&quot;,
+    fill = &quot;Presentation&quot;
+  ) +
+  theme_minimal() +
+  scale_fill_brewer(palette = &quot;Set2&quot;)</code></pre>
+<p><img src="eda_files/figure-html/satge&presentation-1.png" alt="" width="768" /></p>
 <p><em>TODO: stage, tumor size, mode of presentation by period.</em></p>
 </div>
 <div id="treatment-patterns" class="section level2">
 <h2>Treatment Patterns</h2>
 <p><em>TODO: treatment received and time to treatment by
 period.</em></p>
+<pre class="r"><code>df |&gt; 
+  filter(!is.na(tnm_stage), !is.na(treatment)) |&gt; 
+  count(tnm_stage, treatment) |&gt; 
+  group_by(tnm_stage) |&gt; 
+  mutate(percentage = n / sum(n) * 100) |&gt; 
+  ungroup() |&gt; 
+  ggplot(aes(x = tnm_stage, y = percentage, fill = treatment)) +
+  geom_col(position = &quot;fill&quot;, width = 0.6) +
+  scale_y_continuous(labels = scales::percent_format()) +
+  labs(
+    title = &quot;Treatment Distribution Across TNM Stages&quot;,
+    x = &quot;TNM Stage&quot;,
+    y = &quot;Percentage&quot;,
+    fill = &quot;Treatment Type&quot;
+  ) +
+  theme_minimal() +
+  scale_fill_brewer(palette = &quot;Set2&quot;) </code></pre>
+<p><img src="eda_files/figure-html/unnamed-chunk-2-1.png" alt="" width="768" /></p>
+<pre class="r"><code>df |&gt; 
+  filter(!is.na(period), !is.na(tnm_stage), !is.na(treatment)) |&gt; 
+  count(period, tnm_stage, treatment) |&gt; 
+  group_by(period, tnm_stage) |&gt; 
+  mutate(percentage = n / sum(n) * 100) |&gt; 
+  ungroup() |&gt; 
+  ggplot(aes(x = tnm_stage, y = percentage, fill = treatment)) +
+  geom_col(position = &quot;fill&quot;, width = 0.6) +
+  facet_wrap(~ period) +
+  
+  scale_y_continuous(labels = scales::percent_format()) +
+  labs(
+    title = &quot;Treatment Distribution Across TNM Stages by Period&quot;,
+    x = &quot;TNM Stage&quot;,
+    y = &quot;Percentage&quot;,
+    fill = &quot;Treatment Type&quot;
+  ) +
+  theme_minimal() +
+  scale_fill_brewer(palette = &quot;Set2&quot;)</code></pre>
+<p><img src="eda_files/figure-html/unnamed-chunk-3-1.png" alt="" width="768" />
+- Orthotopic Liver Transplantation became harder during the
+pandemic.</p>
 </div>
 
 
