@@ -9,26 +9,192 @@ knitr::opts_chunk$set(message = FALSE, warning = FALSE)
 
 ## Source
 
-The [COVID-19 Effect on Liver Cancer Prediction Dataset](https://www.kaggle.com/datasets/fedesoriano/covid19-effect-on-liver-cancer-prediction-dataset) (Kaggle): 450 patients with HCC or ICC referred to the Newcastle-upon-Tyne NHS Foundation Trust between March 2019 and February 2021.
+We use the [COVID-19 Effect on Liver Cancer Prediction Dataset](https://www.kaggle.com/datasets/fedesoriano/covid19-effect-on-liver-cancer-prediction-dataset) from Kaggle. It includes all new cases of hepatocellular carcinoma (HCC) and intrahepatic cholangiocarcinoma (ICC) referred to the hepatopancreatobiliary multidisciplinary team (MDT) at the Newcastle-upon-Tyne NHS Foundation Trust. There are two cohorts: 12 months before the pandemic (March 2019–February 2020) and the first 12 months of the pandemic (March 2020–February 2021). The data contain 450 patients and 27 variables.
 
 ## Import
 
-```{r import, eval = FALSE}
-# TODO: put the Kaggle csv in data/ and update the file name
-liver_df =
-  read_csv("data/covid-liver.csv") |>
-  janitor::clean_names()
+The raw file is saved as `data/covid-liver.csv`. It uses Windows-1252 encoding (one variable contains an em dash), so we set the encoding explicitly when reading it.
+
+```{r import}
+liver_raw =
+  read_csv(
+    "data/covid-liver.csv",
+    locale = locale(encoding = "windows-1252"),
+    na = c("", "NA")
+  )
+
+dim(liver_raw)
 ```
 
 ## Cleaning
 
-*TODO: recoding, factor levels, missing data, survival time and event indicator.*
+The main cleaning steps are:
 
-```{r clean, eval = FALSE}
-# TODO: cleaning steps
-# write_csv(liver_clean, "data/liver_clean.csv")
+- **Rename** all variables to short, consistent snake_case names.
+- **Cancer type:** in the raw data, `Cancer = Y` means HCC and `Cancer = N` means ICC.
+- **Factors:** set meaningful level orders, e.g. pre-pandemic as the reference period and stages from earliest to latest.
+- **Referral month:** combine period and month into a calendar date. March–December fall in the first year of each cohort, and January–February fall in the second.
+- **Combined stage:** HCC and ICC are staged in separate columns. We create one TNM stage (I–IV) taken from the column that matches the cancer type, and merge HCC stages IIIA and IIIB into III.
+- **Treatment intent:** group treatments into curative (resection, transplant, ablation), non-curative (TACE, SIRT, systemic therapy) and supportive care.
+- **Survival outcome:** create an event indicator (1 = died) for survival analysis.
+- **Data errors:** set impossible values to missing or zero (see [Data Quality Notes](#data-quality-notes)).
+
+```{r clean}
+yn_factor = function(x) {
+  factor(x, levels = c("N", "Y"), labels = c("No", "Yes"))
+}
+
+liver_clean =
+  liver_raw |>
+  rename(
+    cancer                     = Cancer,
+    period                     = Year,
+    month                      = Month,
+    bleed                      = Bleed,
+    presentation               = Mode_Presentation,
+    age                        = Age,
+    sex                        = Gender,
+    etiology                   = Etiology,
+    cirrhosis                  = Cirrhosis,
+    tumor_size                 = Size,
+    hcc_tnm                    = HCC_TNM_Stage,
+    hcc_bclc                   = HCC_BCLC_Stage,
+    icc_tnm                    = ICC_TNM_Stage,
+    treatment                  = Treatment_grps,
+    survival_months            = Survival_fromMDM,
+    status                     = Alive_Dead,
+    incidental_type            = Type_of_incidental_finding,
+    surveillance               = Surveillance_programme,
+    surveillance_effectiveness = Surveillance_effectiveness,
+    surveillance_mode          = Mode_of_surveillance_detection,
+    time_dx_to_tx              = Time_diagnosis_1st_Tx,
+    incident_surveillance_scan = Date_incident_surveillance_scan,
+    ps                         = PS,
+    time_mdt_to_tx             = Time_MDM_1st_treatment,
+    time_decision_to_tx        = Time_decisiontotreat_1st_treatment,
+    prev_known_cirrhosis       = Prev_known_cirrhosis,
+    months_since_surveillance  = Months_from_last_surveillance
+  ) |>
+  mutate(
+    id = row_number(),
+
+    # cancer type and study period
+    cancer_type = factor(if_else(cancer == "Y", "HCC", "ICC"), levels = c("HCC", "ICC")),
+    period = factor(
+      period,
+      levels = c("Prepandemic", "Pandemic"),
+      labels = c("Pre-pandemic", "Pandemic")
+    ),
+    referral_year = case_when(
+      period == "Pre-pandemic" & month >= 3 ~ 2019,
+      period == "Pre-pandemic" & month <= 2 ~ 2020,
+      period == "Pandemic"     & month >= 3 ~ 2020,
+      period == "Pandemic"     & month <= 2 ~ 2021
+    ),
+    referral_month = make_date(referral_year, month, 1),
+
+    # demographics and presentation
+    sex = factor(sex, levels = c("M", "F"), labels = c("Male", "Female")),
+    presentation = factor(presentation, levels = c("Surveillance", "Incidental", "Symptomatic")),
+    incidental_type = str_replace_all(incidental_type, "—", " - "),
+    across(
+      c(bleed, cirrhosis, surveillance, incident_surveillance_scan, prev_known_cirrhosis),
+      yn_factor
+    ),
+    etiology = etiology |>
+      fct_lump_min(min = 10, other_level = "Other") |>
+      fct_infreq(),
+    surveillance_effectiveness = factor(
+      surveillance_effectiveness,
+      levels = c("Consistent", "Inconsistent", "Missed")
+    ),
+    surveillance_mode = factor(surveillance_mode, levels = c("US", "CT/MRI", "AFP alone")),
+    ps = as.integer(ps),
+
+    # staging
+    hcc_tnm = factor(
+      hcc_tnm,
+      levels = c("I", "II", "IIIA+IIIB", "IV"),
+      labels = c("I", "II", "III", "IV")
+    ),
+    hcc_bclc = factor(hcc_bclc, levels = c("0", "A", "B", "C", "D")),
+    icc_tnm = factor(icc_tnm, levels = c("I", "II", "III", "IV")),
+    tnm_stage = if_else(cancer_type == "HCC", hcc_tnm, icc_tnm),
+
+    # treatment
+    treatment = factor(
+      treatment,
+      levels = c("Resection", "OLTx", "Ablation", "TACE", "SIRT", "Medical", "Supportive care")
+    ),
+    treatment_intent = case_when(
+      treatment %in% c("Resection", "OLTx", "Ablation") ~ "Curative",
+      treatment %in% c("TACE", "SIRT", "Medical")       ~ "Non-curative",
+      treatment == "Supportive care"                    ~ "Supportive care"
+    ) |>
+      factor(levels = c("Curative", "Non-curative", "Supportive care")),
+
+    # data errors (see Data Quality Notes)
+    time_dx_to_tx = if_else(time_dx_to_tx < 0, NA_real_, time_dx_to_tx),
+    survival_months = pmax(survival_months, 0),
+
+    # survival outcome
+    status = factor(status, levels = c("Alive", "Dead")),
+    event = as.integer(status == "Dead")
+  ) |>
+  select(
+    id, cancer_type, period, referral_month, age, sex, ps,
+    presentation, incidental_type, surveillance, surveillance_effectiveness,
+    surveillance_mode, months_since_surveillance, incident_surveillance_scan,
+    etiology, cirrhosis, prev_known_cirrhosis, bleed, tumor_size,
+    tnm_stage, hcc_tnm, hcc_bclc, icc_tnm,
+    treatment, treatment_intent, time_dx_to_tx, time_mdt_to_tx, time_decision_to_tx,
+    survival_months, status, event
+  )
+
+write_rds(liver_clean, "data/liver_clean.rds")
+write_csv(liver_clean, "data/liver_clean.csv")
 ```
 
-## Variables
+The cleaned data are saved as `data/liver_clean.rds`, which keeps factor levels and is the version used by the analysis pages, and as `data/liver_clean.csv` for easy viewing.
 
-*TODO: short description of the key variables used in the analysis.*
+## Checks
+
+Patients by cancer type and period:
+
+```{r check-counts}
+liver_clean |>
+  count(cancer_type, period) |>
+  pivot_wider(names_from = period, values_from = n) |>
+  knitr::kable()
+```
+
+Combined TNM stage by cancer type:
+
+```{r check-stage}
+liver_clean |>
+  count(cancer_type, tnm_stage) |>
+  pivot_wider(names_from = cancer_type, values_from = n, values_fill = 0) |>
+  knitr::kable()
+```
+
+Missing values by variable and cancer type:
+
+```{r check-missing}
+liver_clean |>
+  group_by(cancer_type) |>
+  summarize(across(everything(), \(x) sum(is.na(x)))) |>
+  pivot_longer(-cancer_type, names_to = "variable", values_to = "n_missing") |>
+  pivot_wider(names_from = cancer_type, values_from = n_missing) |>
+  filter(HCC > 0 | ICC > 0) |>
+  knitr::kable()
+```
+
+## Data Quality Notes
+
+- **Missing by design.** Several variables were recorded for HCC only: bleeding, etiology, cirrhosis, surveillance programme and HCC staging. They are missing for almost all ICC patients. This is structural, not random, so analyses using these variables are restricted to HCC.
+- **Conditional variables.** Variables such as `incidental_type`, `surveillance_effectiveness` and `months_since_surveillance` apply only to certain modes of presentation, which explains most of their missingness.
+- **Time to treatment.** The three timing variables are available only for patients who received active treatment, and most patients on supportive care have no value.
+- **Implausible values.** One patient has a time from diagnosis to first treatment of −1434, which we set to missing. One patient has a survival time of −0.03, which we set to 0.
+- **Inconsistent records.** One ICC patient also has an HCC stage and etiology recorded. We classify this patient as ICC, following the `Cancer` variable, and take their stage from the ICC staging column. One ICC patient has no stage recorded.
+- **Small categories.** Etiologies with fewer than 10 patients (HBV and "Other") are combined into "Other".
+- **Units.** Survival and the timing variables appear to be in months (survival is at most about 33 months, consistent with follow-up from 2019). Tumor size appears to be in millimetres. The dataset documentation does not state units explicitly.
