@@ -4,19 +4,65 @@ title: "Regression Analysis"
 
 ```{r setup, include = FALSE}
 library(tidyverse)
+library(nnet)
 library(modelr)
 knitr::opts_chunk$set(message = FALSE, warning = FALSE)
 ```
 
-```{r load, eval = FALSE}
-liver_clean = read_csv("data/liver_clean.csv")
+```{r load}
+df = read_csv("data/liver_clean.csv")
 ```
 
 ## Treatment Type
 
+For HCC, how baseline characters influence patients' treatment intent
+```{r}
+
+df_hcc_model = df |>
+  filter(cancer_type == "HCC", !is.na(treatment_intent)) |>
+  drop_na(age, sex, ps, tumor_size, tnm_stage, etiology) |>
+  mutate(
+    curative = ifelse(treatment_intent == "Curative", 1, 0),
+    stage_group = ifelse(tnm_stage %in% c("I", "II"), "Early (I-II)", "Advanced (III-IV)"),
+    stage_group = factor(stage_group, levels = c("Early (I-II)", "Advanced (III-IV)")),
+    sex = factor(sex),
+    etiology = factor(etiology) 
+  )
+fit_hcc_etiology <- glm(
+  curative ~ age + sex + ps + tumor_size + stage_group + etiology,
+  data = df_hcc_model,
+  family = binomial(link = "logit")
+)
+summary(fit_hcc_etiology)
+exp(cbind(OR = coef(fit_hcc_etiology), confint(fit_hcc_etiology)))
+```
+
+For ICC, exclude etiology as most of them are NA
+```{r}
+df_icc_model = df |>
+  filter(cancer_type == "ICC", !is.na(treatment_intent)) |>
+  drop_na(age, sex, ps, tumor_size, tnm_stage) |>
+  mutate(
+    curative = ifelse(treatment_intent == "Curative", 1, 0),
+    stage_group = ifelse(tnm_stage %in% c("I", "II"), "Early (I-II)", "Advanced (III-IV)"),
+    stage_group = factor(stage_group, levels = c("Early (I-II)", "Advanced (III-IV)")),
+    sex = factor(sex)
+  )
+fit_icc_etiology <- glm(
+  curative ~ age + sex + ps + tumor_size + stage_group,
+  data = df_icc_model,
+  family = binomial(link = "logit")
+)
+summary(fit_icc_etiology)
+exp(cbind(OR = coef(fit_icc_etiology), confint(fit_icc_etiology)))
+```
+
 *TODO: logistic regression with period as the main exposure.*
 
 ## Time to Treatment
+```{r}
+
+```
 
 *TODO: linear model for (log) time to treatment.*
 

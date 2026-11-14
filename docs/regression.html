@@ -388,9 +388,117 @@ div.tocify {
 </div>
 
 
-<pre class="r"><code>liver_clean = read_csv(&quot;data/liver_clean.csv&quot;)</code></pre>
+<pre class="r"><code>df = read_csv(&quot;data/liver_clean.csv&quot;)</code></pre>
 <div id="treatment-type" class="section level2">
 <h2>Treatment Type</h2>
+<p>For HCC, how baseline characters influence patients’ treatment
+intent</p>
+<pre class="r"><code>df_hcc_model = df |&gt;
+  filter(cancer_type == &quot;HCC&quot;, !is.na(treatment_intent)) |&gt;
+  drop_na(age, sex, ps, tumor_size, tnm_stage, etiology) |&gt;
+  mutate(
+    curative = ifelse(treatment_intent == &quot;Curative&quot;, 1, 0),
+    stage_group = ifelse(tnm_stage %in% c(&quot;I&quot;, &quot;II&quot;), &quot;Early (I-II)&quot;, &quot;Advanced (III-IV)&quot;),
+    stage_group = factor(stage_group, levels = c(&quot;Early (I-II)&quot;, &quot;Advanced (III-IV)&quot;)),
+    sex = factor(sex),
+    etiology = factor(etiology) 
+  )
+fit_hcc_etiology &lt;- glm(
+  curative ~ age + sex + ps + tumor_size + stage_group + etiology,
+  data = df_hcc_model,
+  family = binomial(link = &quot;logit&quot;)
+)
+summary(fit_hcc_etiology)</code></pre>
+<pre><code>## 
+## Call:
+## glm(formula = curative ~ age + sex + ps + tumor_size + stage_group + 
+##     etiology, family = binomial(link = &quot;logit&quot;), data = df_hcc_model)
+## 
+## Coefficients:
+##                              Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept)                   5.19315    1.68905   3.075  0.00211 ** 
+## age                          -0.05749    0.02315  -2.483  0.01302 *  
+## sexMale                      -0.48253    0.48376  -0.997  0.31854    
+## ps                           -0.81107    0.23227  -3.492  0.00048 ***
+## tumor_size                   -0.02988    0.01075  -2.780  0.00543 ** 
+## stage_groupAdvanced (III-IV) -3.21841    1.07000  -3.008  0.00263 ** 
+## etiologyHCV                  -0.18473    0.69682  -0.265  0.79093    
+## etiologyHH                    0.91588    0.79730   1.149  0.25067    
+## etiologyNAFLD                -0.39305    0.46049  -0.854  0.39335    
+## etiologyNo established CLD    0.28135    0.81057   0.347  0.72852    
+## etiologyOther                -2.11102    1.55933  -1.354  0.17580    
+## etiologyPBC/AIH              -1.40170    1.20789  -1.160  0.24586    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 269.97  on 298  degrees of freedom
+## Residual deviance: 177.92  on 287  degrees of freedom
+## AIC: 201.92
+## 
+## Number of Fisher Scoring iterations: 7</code></pre>
+<pre class="r"><code>exp(cbind(OR = coef(fit_hcc_etiology), confint(fit_hcc_etiology)))</code></pre>
+<pre><code>##                                        OR       2.5 %       97.5 %
+## (Intercept)                  180.03509413 7.550502278 6113.5705659
+## age                            0.94412943 0.900141122    0.9869746
+## sexMale                        0.61721851 0.239603745    1.6234327
+## ps                             0.44438260 0.273416255    0.6836456
+## tumor_size                     0.97056651 0.948338643    0.9893299
+## stage_groupAdvanced (III-IV)   0.04001877 0.002125291    0.2157503
+## etiologyHCV                    0.83132980 0.204087727    3.2402667
+## etiologyHH                     2.49898316 0.501399121   12.1940656
+## etiologyNAFLD                  0.67499542 0.271164049    1.6671517
+## etiologyNo established CLD     1.32491102 0.237868771    6.2285094
+## etiologyOther                  0.12111437 0.003408789    2.1328973
+## etiologyPBC/AIH                0.24617690 0.011362858    1.9848387</code></pre>
+<p>For ICC, exclude etiology as most of them are NA</p>
+<pre class="r"><code>df_icc_model = df |&gt;
+  filter(cancer_type == &quot;ICC&quot;, !is.na(treatment_intent)) |&gt;
+  drop_na(age, sex, ps, tumor_size, tnm_stage) |&gt;
+  mutate(
+    curative = ifelse(treatment_intent == &quot;Curative&quot;, 1, 0),
+    stage_group = ifelse(tnm_stage %in% c(&quot;I&quot;, &quot;II&quot;), &quot;Early (I-II)&quot;, &quot;Advanced (III-IV)&quot;),
+    stage_group = factor(stage_group, levels = c(&quot;Early (I-II)&quot;, &quot;Advanced (III-IV)&quot;)),
+    sex = factor(sex)
+  )
+fit_icc_etiology &lt;- glm(
+  curative ~ age + sex + ps + tumor_size + stage_group,
+  data = df_icc_model,
+  family = binomial(link = &quot;logit&quot;)
+)
+summary(fit_icc_etiology)</code></pre>
+<pre><code>## 
+## Call:
+## glm(formula = curative ~ age + sex + ps + tumor_size + stage_group, 
+##     family = binomial(link = &quot;logit&quot;), data = df_icc_model)
+## 
+## Coefficients:
+##                              Estimate Std. Error z value Pr(&gt;|z|)  
+## (Intercept)                   5.81971    2.44654   2.379   0.0174 *
+## age                          -0.05627    0.03296  -1.707   0.0878 .
+## sexMale                      -0.42275    0.84939  -0.498   0.6187  
+## ps                           -0.93629    0.58295  -1.606   0.1082  
+## tumor_size                   -0.02933    0.01582  -1.854   0.0638 .
+## stage_groupAdvanced (III-IV) -1.99032    0.81865  -2.431   0.0150 *
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 83.550  on 96  degrees of freedom
+## Residual deviance: 57.648  on 91  degrees of freedom
+## AIC: 69.648
+## 
+## Number of Fisher Scoring iterations: 6</code></pre>
+<pre class="r"><code>exp(cbind(OR = coef(fit_icc_etiology), confint(fit_icc_etiology)))</code></pre>
+<pre><code>##                                       OR      2.5 %       97.5 %
+## (Intercept)                  336.8737309 3.76361564 6.705263e+04
+## age                            0.9452825 0.88260941 1.006249e+00
+## sexMale                        0.6552445 0.11674261 3.554293e+00
+## ps                             0.3920807 0.10983169 1.115715e+00
+## tumor_size                     0.9710919 0.93642407 9.973109e-01
+## stage_groupAdvanced (III-IV)   0.1366522 0.02410532 6.437250e-01</code></pre>
 <p><em>TODO: logistic regression with period as the main
 exposure.</em></p>
 </div>
