@@ -1,0 +1,451 @@
+id,cancer_type,period,referral_month,age,sex,ps,presentation,incidental_type,surveillance,surveillance_effectiveness,surveillance_mode,months_since_surveillance,incident_surveillance_scan,etiology,cirrhosis,prev_known_cirrhosis,bleed,tumor_size,tnm_stage,hcc_tnm,hcc_bclc,icc_tnm,treatment,treatment_intent,time_dx_to_tx,time_mdt_to_tx,time_decision_to_tx,survival_months,status,event
+1,HCC,Pre-pandemic,2020-01-01,68,Male,0,Surveillance,NA,Yes,Consistent,US,7.333333333,NA,NAFLD,Yes,Yes,No,22,II,II,A,NA,Ablation,Curative,0.47,0.7,NA,32.73,Alive,0
+2,HCC,Pre-pandemic,2020-01-01,70,Male,2,Surveillance,NA,Yes,Consistent,US,4.033333333,NA,ARLD,Yes,Yes,No,40,I,I,D,NA,Supportive care,Supportive care,NA,NA,NA,3.03,Dead,1
+3,HCC,Pre-pandemic,2020-01-01,64,Male,0,Surveillance,NA,Yes,Consistent,US,5.9,NA,ARLD,Yes,Yes,No,52,IV,IV,B,NA,Medical,Non-curative,NA,NA,NA,14.97,Dead,1
+4,HCC,Pre-pandemic,2020-01-01,73,Male,2,Incidental,Secondary care - acute,No,NA,NA,NA,NA,ARLD,Yes,Yes,No,80,IV,IV,C,NA,Supportive care,Supportive care,NA,NA,NA,1.4,Dead,1
+5,HCC,Pre-pandemic,2020-01-01,66,Female,0,Incidental,Secondary care - acute,No,NA,NA,NA,NA,ARLD,Yes,Yes,No,60,I,I,0,NA,Supportive care,Supportive care,NA,NA,NA,32.5,Alive,0
+6,HCC,Pre-pandemic,2020-01-01,70,Male,2,Incidental,Secondary care - acute,Yes,Consistent,NA,3,NA,NAFLD,Yes,Yes,No,24,III,III,C,NA,Supportive care,Supportive care,NA,NA,NA,3.03,Dead,1
+7,HCC,Pre-pandemic,2020-01-01,73,Male,0,Incidental,Primary care - routine,No,NA,NA,NA,NA,NAFLD,Yes,Yes,No,28,II,II,A,NA,TACE,Non-curative,3.2,3,NA,32.5,Alive,0
+8,HCC,Pre-pandemic,2020-01-01,67,Male,0,Incidental,Primary care - routine,No,NA,NA,NA,NA,NAFLD,No,No,No,45,I,I,A,NA,TACE,Non-curative,1.07,1.4,NA,26.4,Dead,1
+9,HCC,Pre-pandemic,2020-01-01,57,Male,1,Surveillance,NA,Yes,Consistent,US,6.633333333,NA,HCV,Yes,Yes,No,33,I,I,B,NA,TACE,Non-curative,1.53,1.53,0.8,32.27,Alive,0
+10,HCC,Pre-pandemic,2020-01-01,75,Male,1,Incidental,Secondary care - acute,No,NA,NA,NA,NA,NAFLD,Yes,No,No,80,III,III,D,NA,Supportive care,Supportive care,NA,NA,NA,4.73,Dead,1
+11,HCC,Pre-pandemic,2020-01-01,81,Female,0,Incidental,Primary care - routine,No,NA,NA,NA,NA,No established CLD,No,No,No,100,I,I,B,NA,SIRT,Non-curative,2.07,2.7,NA,24.4,Dead,1
+12,HCC,Pre-pandemic,2020-01-01,82,Male,2,Surveillance,NA,Yes,Consistent,AFP alone,4.266666667,NA,NAFLD,No,Yes,No,27,IV,IV,C,NA,Supportive care,Supportive care,NA,NA,NA,3.1,Dead,1
+13,HCC,Pre-pandemic,2020-01-01,74,Male,2,Surveillance,NA,Yes,Consistent,US,6.233333333,NA,NAFLD,Yes,Yes,No,19,II,II,C,NA,TACE,Non-curative,3.83,7.23,NA,23.17,Dead,1
+14,HCC,Pre-pandemic,2020-01-01,76,Male,1,Incidental,Primary care - routine,No,NA,NA,NA,NA,NAFLD,No,No,No,150,III,III,C,NA,Supportive care,Supportive care,NA,NA,NA,4.8,Dead,1
+15,HCC,Pre-pandemic,2020-02-01,66,Male,1,Surveillance,NA,Yes,Consistent,US,6.3,NA,ARLD,Yes,Yes,No,23,III,III,A,NA,Medical,Non-curative,12.53,4.4,NA,15.53,Dead,1
+16,HCC,Pre-pandemic,2020-02-01,78,Female,1,Incidental,Secondary care - routine,No,NA,NA,NA,NA,NAFLD,No,No,No,40,I,I,B,NA,Medical,Non-curative,2.23,2.23,0.23,13.87,Dead,1
+17,HCC,Pre-pandemic,2020-02-01,82,Female,0,Surveillance,NA,Yes,Consistent,US,5.333333333,NA,PBC/AIH,Yes,Yes,No,19,I,I,0,NA,Supportive care,Supportive care,NA,NA,NA,31.83,Alive,0
+18,HCC,Pre-pandemic,2020-02-01,71,Female,0,Symptomatic,NA,No,NA,NA,NA,NA,ARLD,Yes,Yes,No,54,I,I,D,NA,Supportive care,Supportive care,NA,NA,NA,7.1,Dead,1
+19,HCC,Pre-pandemic,2020-02-01,66,Male,1,Symptomatic,NA,No,NA,NA,NA,NA,NAFLD,No,No,No,110,III,III,B,NA,SIRT,Non-curative,3.2,3.23,1.2,7.2,Dead,1
+20,HCC,Pre-pandemic,2020-02-01,73,Male,0,Incidental,Primary care - acute,No,NA,NA,NA,NA,NAFLD,Yes,No,No,14,II,II,A,NA,Ablation,Curative,NA,0.93,0.23,31.83,Alive,0
+21,HCC,Pre-pandemic,2020-02-01,86,Male,2,Incidental,Secondary care - acute,No,NA,NA,NA,NA,NAFLD,Yes,No,No,55,II,II,C,NA,TACE,Non-curative,3.17,4.07,NA,16.1,Dead,1
+22,HCC,Pre-pandemic,2020-02-01,77,Male,1,Surveillance,NA,Yes,Consistent,US,4.166666667,NA,ARLD,Yes,Yes,No,11,I,I,D,NA,Supportive care,Supportive care,NA,NA,NA,11.3,Dead,1
+23,HCC,Pre-pandemic,2020-02-01,57,Male,2,Surveillance,Secondary care - acute,Yes,Consistent,US,4.033333333,NA,ARLD,Yes,Yes,No,30,III,III,D,NA,Supportive care,Supportive care,NA,NA,NA,7.03,Dead,1
+24,ICC,Pre-pandemic,2020-02-01,64,Female,2,Surveillance,NA,Yes,Consistent,AFP alone,3.766666667,NA,PBC/AIH,Yes,Yes,NA,22,II,I,C,II,Ablation,Curative,1.6,1.6,NA,31.77,Alive,0
+25,HCC,Pre-pandemic,2020-02-01,85,Male,0,Incidental,Secondary care - acute,No,NA,NA,NA,NA,HH,No,NA,No,90,III,III,C,NA,Medical,Non-curative,1.63,2.03,NA,31.13,Alive,0
+26,HCC,Pre-pandemic,2020-02-01,73,Male,3,Surveillance,NA,Yes,Consistent,AFP alone,2.566666667,NA,ARLD,Yes,Yes,No,70,III,III,C,NA,Supportive care,Supportive care,NA,NA,NA,8.77,Dead,1
+27,HCC,Pre-pandemic,2020-02-01,78,Male,0,Incidental,Secondary care - routine,No,NA,NA,NA,NA,NAFLD,No,No,No,28,I,I,A,NA,TACE,Non-curative,2.03,5,NA,31.13,Alive,0
+28,HCC,Pre-pandemic,2019-03-01,76,Male,0,Surveillance,NA,Yes,Consistent,US,5.8,NA,NAFLD,Yes,Yes,No,45,I,I,A,NA,TACE,Non-curative,3.47,10.23,NA,30.9,Alive,0
+29,HCC,Pre-pandemic,2019-03-01,54,Male,0,Incidental,Primary care - acute,No,NA,NA,NA,NA,NAFLD,Yes,No,No,20,I,I,A,NA,Ablation,Curative,2.07,2.07,2.07,30.9,Alive,0
+30,HCC,Pre-pandemic,2019-03-01,72,Male,1,Surveillance,NA,Yes,Consistent,AFP alone,3.2,NA,ARLD,Yes,Yes,No,24,I,I,C,NA,Ablation,Curative,3.87,3.9,NA,13,Dead,1
+31,HCC,Pre-pandemic,2019-03-01,63,Male,1,Symptomatic,NA,No,NA,NA,NA,NA,ARLD,Yes,Yes,No,44,III,III,A,NA,Supportive care,Supportive care,NA,NA,NA,8.97,Dead,1
+32,HCC,Pre-pandemic,2019-03-01,67,Female,1,Incidental,Secondary care - routine,No,NA,NA,NA,NA,PBC/AIH,Yes,Yes,No,70,IV,IV,C,NA,Supportive care,Supportive care,NA,NA,NA,0.13,Dead,1
+33,HCC,Pre-pandemic,2019-03-01,84,Male,2,Incidental,Secondary care - acute,No,NA,NA,NA,NA,No established CLD,No,No,No,150,I,I,C,NA,Supportive care,Supportive care,NA,NA,NA,1.27,Dead,1
+34,HCC,Pre-pandemic,2019-03-01,55,Female,1,Symptomatic,NA,No,NA,NA,NA,NA,HCV,Yes,No,No,40,II,II,C,NA,Supportive care,Supportive care,NA,NA,NA,12.1,Dead,1
+35,HCC,Pre-pandemic,2019-03-01,68,Male,0,Incidental,Primary care - routine,No,NA,NA,NA,NA,ARLD,Yes,No,No,16,III,III,C,NA,Supportive care,Supportive care,NA,NA,NA,0.9,Dead,1
+36,HCC,Pre-pandemic,2019-03-01,66,Male,4,Symptomatic,NA,No,NA,NA,NA,NA,No established CLD,No,No,No,NA,IV,IV,D,NA,Supportive care,Supportive care,NA,NA,NA,0,Dead,1
+37,HCC,Pre-pandemic,2019-03-01,54,Male,1,Surveillance,NA,Yes,Missed,US,58.8,NA,ARLD,Yes,Yes,No,35,II,II,C,NA,TACE,Non-curative,1.77,2.23,NA,29.3,Dead,1
+38,HCC,Pre-pandemic,2019-03-01,89,Male,1,Symptomatic,NA,No,NA,NA,NA,NA,NAFLD,Yes,No,No,20,I,I,A,NA,TACE,Non-curative,NA,3.37,1.4,21.73,Dead,1
+39,HCC,Pre-pandemic,2019-03-01,75,Male,1,Incidental,Primary care - routine,No,NA,NA,NA,NA,ARLD,Yes,Yes,No,94,I,I,C,NA,SIRT,Non-curative,3.13,2.67,NA,30.2,Alive,0
+40,HCC,Pre-pandemic,2019-03-01,87,Female,0,Surveillance,NA,Yes,Consistent,US,9.833333333,NA,NAFLD,Yes,Yes,No,48,III,III,B,NA,Supportive care,Supportive care,NA,NA,NA,5.23,Dead,1
+41,HCC,Pre-pandemic,2019-03-01,73,Male,2,Incidental,Secondary care - acute,Yes,Consistent,NA,1.533333333,NA,NAFLD,Yes,Yes,No,70,III,III,C,NA,Supportive care,Supportive care,NA,NA,NA,4.23,Dead,1
+42,HCC,Pre-pandemic,2019-04-01,77,Female,1,Surveillance,NA,Yes,Consistent,US,5.8,NA,NAFLD,Yes,Yes,No,22,II,II,B,NA,TACE,Non-curative,0.87,0.87,0.87,24.4,Dead,1
+43,HCC,Pre-pandemic,2019-04-01,70,Female,1,Surveillance,NA,Yes,Consistent,US,6.033333333,NA,ARLD,Yes,Yes,No,10,I,I,A,NA,Ablation,Curative,NA,1.63,1.6,29.77,Alive,0
+44,HCC,Pre-pandemic,2019-04-01,77,Male,2,Surveillance,NA,Yes,Consistent,US,5.233333333,NA,ARLD,Yes,Yes,No,28,I,I,A,NA,Ablation,Curative,NA,0.83,0.4,29.77,Alive,0
+45,HCC,Pre-pandemic,2019-04-01,69,Male,0,Incidental,Secondary care - acute,Yes,Consistent,NA,6,NA,ARLD,No,Yes,No,40,I,I,A,NA,TACE,Non-curative,2.6,3.47,NA,29.77,Alive,0
+46,HCC,Pre-pandemic,2019-04-01,53,Male,0,Surveillance,NA,Yes,Consistent,US,7.533333333,NA,ARLD,Yes,Yes,No,100,IV,IV,C,NA,Supportive care,Supportive care,NA,NA,NA,0.97,Dead,1
+47,HCC,Pre-pandemic,2019-04-01,43,Male,0,Surveillance,NA,Yes,Consistent,US,5.766666667,NA,ARLD,Yes,Yes,No,16,I,I,A,NA,OLTx,Curative,NA,15,7.43,29.77,Alive,0
+48,HCC,Pre-pandemic,2019-04-01,81,Male,2,Surveillance,NA,Yes,Consistent,AFP alone,6.733333333,NA,ARLD,Yes,Yes,No,30,I,I,B,NA,TACE,Non-curative,NA,8.13,1.03,29.77,Alive,0
+49,HCC,Pre-pandemic,2019-04-01,75,Male,1,Symptomatic,NA,No,NA,NA,NA,NA,ARLD,Yes,No,No,NA,IV,IV,C,NA,Supportive care,Supportive care,NA,NA,NA,4.4,Dead,1
+50,HCC,Pre-pandemic,2019-04-01,65,Male,1,Symptomatic,NA,No,NA,NA,NA,NA,HCV,Yes,No,No,100,III,III,D,NA,Supportive care,Supportive care,NA,NA,NA,4.33,Dead,1
+51,HCC,Pre-pandemic,2019-04-01,71,Male,NA,Symptomatic,NA,No,NA,NA,NA,NA,NAFLD,Yes,No,No,120,III,III,B,NA,Supportive care,Supportive care,NA,NA,NA,5.07,Dead,1
+52,HCC,Pre-pandemic,2019-04-01,64,Male,2,Surveillance,NA,Yes,Consistent,US,8.466666667,NA,ARLD,Yes,Yes,No,100,III,III,D,NA,Supportive care,Supportive care,NA,NA,NA,0.17,Dead,1
+53,HCC,Pre-pandemic,2019-04-01,82,Female,1,Symptomatic,NA,No,NA,NA,NA,NA,NAFLD,Yes,Yes,No,45,I,I,D,NA,Supportive care,Supportive care,NA,NA,NA,1.33,Dead,1
+54,HCC,Pre-pandemic,2019-04-01,41,Female,1,Surveillance,NA,Yes,Inconsistent,US,7.833333333,NA,ARLD,Yes,Yes,No,11,I,I,C,NA,Ablation,Curative,13.57,1.6,1.57,29.3,Alive,0
+55,HCC,Pre-pandemic,2019-04-01,86,Male,2,Surveillance,NA,Yes,Missed,US,37,NA,HH,Yes,No,No,NA,IV,IV,D,NA,Supportive care,Supportive care,NA,NA,NA,4.5,Dead,1
+56,HCC,Pre-pandemic,2019-04-01,78,Female,0,Surveillance,NA,Yes,Consistent,US,5.633333333,NA,ARLD,Yes,Yes,No,17,II,II,A,NA,Ablation,Curative,4.1,4.23,NA,15.67,Dead,1
+57,HCC,Pre-pandemic,2019-04-01,61,Male,0,Incidental,Secondary care - routine,No,NA,NA,NA,NA,ARLD,Yes,No,No,33,IV,IV,C,NA,Medical,Non-curative,2.47,3.8,NA,29.07,Alive,0
+58,HCC,Pre-pandemic,2019-04-01,71,Male,1,Incidental,Secondary care - acute,No,NA,NA,NA,NA,HCV,No,No,No,28,III,III,A,NA,Medical,Non-curative,NA,3.8,2.2,14.03,Dead,1
+59,HCC,Pre-pandemic,2019-04-01,70,Male,0,Surveillance,NA,Yes,Consistent,US,11.13333333,NA,NAFLD,Yes,Yes,No,21,I,I,A,NA,Ablation,Curative,0,2.5,NA,29.07,Alive,0
+60,HCC,Pre-pandemic,2019-04-01,71,Male,0,Incidental,Secondary care - acute,No,NA,NA,NA,NA,ARLD,Yes,No,No,22,I,I,A,NA,TACE,Non-curative,1.6,1.6,NA,29.07,Alive,0
+61,HCC,Pre-pandemic,2019-04-01,48,Male,0,Symptomatic,NA,No,NA,NA,NA,NA,HCV,Yes,No,No,72,IV,IV,C,NA,Supportive care,Supportive care,NA,NA,NA,29.07,Alive,0
+62,HCC,Pre-pandemic,2019-05-01,75,Male,1,Incidental,Secondary care - routine,Yes,Consistent,NA,6.166666667,NA,ARLD,Yes,Yes,No,31,IV,IV,C,NA,TACE,Non-curative,1.83,1.13,NA,28.83,Alive,0
+63,HCC,Pre-pandemic,2019-05-01,73,Male,0,Incidental,Primary care - routine,No,NA,NA,NA,NA,NAFLD,Yes,No,No,26,I,I,A,NA,TACE,Non-curative,1.6,1.83,1.37,28.83,Alive,0
+64,HCC,Pre-pandemic,2019-05-01,76,Male,2,Incidental,Secondary care - routine,No,NA,NA,NA,NA,No established CLD,No,No,No,130,IV,IV,D,NA,Supportive care,Supportive care,NA,NA,NA,2.17,Dead,1
+65,HCC,Pre-pandemic,2019-05-01,82,Female,0,Surveillance,NA,Yes,Consistent,US,4.266666667,NA,NAFLD,Yes,Yes,No,18,I,I,A,NA,Supportive care,Supportive care,NA,NA,NA,13.07,Dead,1
+66,HCC,Pre-pandemic,2019-05-01,74,Male,0,Incidental,Primary care - routine,No,NA,NA,NA,NA,NAFLD,No,No,No,80,I,I,B,NA,SIRT,Non-curative,1.73,2.47,NA,22.8,Dead,1
+67,HCC,Pre-pandemic,2019-05-01,79,Male,3,Symptomatic,NA,No,NA,NA,NA,NA,NAFLD,No,No,No,NA,III,III,D,NA,Supportive care,Supportive care,NA,NA,NA,0.93,Dead,1
+68,HCC,Pre-pandemic,2019-05-01,61,Female,2,Surveillance,NA,Yes,Consistent,AFP alone,6.166666667,NA,ARLD,Yes,Yes,No,18,I,I,C,NA,Ablation,Curative,3,3.67,NA,28.6,Alive,0
+69,HCC,Pre-pandemic,2019-05-01,81,Male,3,Incidental,Secondary care - acute,No,NA,NA,NA,NA,No established CLD,No,No,No,60,III,III,C,NA,Supportive care,Supportive care,NA,NA,NA,3.4,Dead,1
+70,HCC,Pre-pandemic,2019-05-01,82,Male,1,Symptomatic,NA,No,NA,NA,NA,NA,NAFLD,Yes,No,No,100,III,III,C,NA,Supportive care,Supportive care,NA,NA,NA,7.1,Dead,1
+71,HCC,Pre-pandemic,2019-05-01,60,Male,0,Incidental,Secondary care - routine,Yes,Consistent,NA,5.6,NA,NAFLD,Yes,Yes,No,41,I,I,B,NA,OLTx,Curative,1.13,1.13,NA,28.37,Alive,0
+72,HCC,Pre-pandemic,2019-05-01,83,Male,1,Symptomatic,NA,No,NA,NA,NA,NA,NAFLD,Yes,No,No,37,I,I,C,NA,Supportive care,Supportive care,NA,NA,NA,7.8,Dead,1
+73,HCC,Pre-pandemic,2019-05-01,71,Female,0,Incidental,Secondary care - acute,No,NA,NA,NA,NA,ARLD,No,No,No,14,I,I,A,NA,Ablation,Curative,0,2.5,NA,28.37,Alive,0
+74,HCC,Pre-pandemic,2019-05-01,90,Male,2,Incidental,Secondary care - acute,No,NA,NA,NA,NA,NAFLD,Yes,No,No,33,I,I,A,NA,Supportive care,Supportive care,NA,NA,NA,10.9,Dead,1
+75,HCC,Pre-pandemic,2019-05-01,67,Male,3,Symptomatic,NA,No,NA,NA,NA,NA,NAFLD,Yes,Yes,No,14,II,II,D,NA,Supportive care,Supportive care,NA,NA,NA,6.73,Dead,1
+76,HCC,Pre-pandemic,2019-05-01,80,Male,1,Symptomatic,NA,No,NA,NA,NA,NA,No established CLD,No,No,No,114,I,I,C,NA,Supportive care,Supportive care,NA,NA,NA,5.47,Dead,1
+77,HCC,Pre-pandemic,2019-05-01,69,Male,1,Incidental,Secondary care - acute,Yes,Inconsistent,NA,6.066666667,NA,ARLD,Yes,Yes,No,14,I,I,A,NA,TACE,Non-curative,4.93,4.93,NA,28.13,Alive,0
+78,HCC,Pre-pandemic,2019-05-01,78,Male,1,Incidental,Primary care - acute,No,NA,NA,NA,NA,NAFLD,No,No,No,25,II,II,C,NA,TACE,Non-curative,2.53,3.17,NA,28.13,Alive,0
+79,HCC,Pre-pandemic,2019-06-01,68,Female,2,Incidental,Secondary care - acute,No,NA,NA,NA,NA,No established CLD,No,No,No,95,III,III,C,NA,Supportive care,Supportive care,NA,NA,NA,17.17,Dead,1
+80,HCC,Pre-pandemic,2019-06-01,70,Male,1,Surveillance,NA,Yes,Consistent,US,8.3,NA,NAFLD,Yes,Yes,No,23,II,II,C,NA,Supportive care,Supportive care,NA,NA,NA,27.93,Alive,0
+81,HCC,Pre-pandemic,2019-06-01,87,Male,2,Incidental,Secondary care - acute,No,NA,NA,NA,NA,NAFLD,No,No,No,100,III,III,C,NA,Supportive care,Supportive care,NA,NA,NA,27.93,Alive,0
+82,HCC,Pre-pandemic,2019-06-01,54,Male,0,Surveillance,NA,Yes,Consistent,US,26.7,NA,HCV,Yes,No,No,40,II,II,C,NA,TACE,Non-curative,NA,NA,NA,17.87,Dead,1
+83,HCC,Pre-pandemic,2019-06-01,55,Male,0,Incidental,Primary care - acute,No,NA,NA,NA,NA,HCV,Yes,No,No,NA,IV,IV,C,NA,Medical,Non-curative,NA,NA,NA,5.8,Dead,1
+84,HCC,Pre-pandemic,2019-06-01,61,Female,3,Incidental,Secondary care - acute,Yes,Inconsistent,NA,0.733333333,NA,HCV,Yes,Yes,No,20,II,II,D,NA,Supportive care,Supportive care,NA,NA,NA,7.2,Dead,1
+85,HCC,Pre-pandemic,2019-06-01,76,Female,1,Incidental,Secondary care - acute,No,NA,NA,NA,NA,PBC/AIH,Yes,Yes,No,30,II,II,C,NA,SIRT,Non-curative,6.3,5.47,0,20.3,Dead,1
+86,HCC,Pre-pandemic,2019-06-01,66,Male,3,Incidental,Secondary care - acute,No,NA,NA,NA,NA,ARLD,Yes,No,No,32,II,II,D,NA,OLTx,Curative,NA,NA,NA,27.7,Alive,0
+87,HCC,Pre-pandemic,2019-06-01,61,Female,0,Surveillance,NA,Yes,Consistent,US,6.8,NA,HCV,Yes,Yes,No,21,I,I,A,NA,Ablation,Curative,NA,NA,NA,27.7,Alive,0
+88,HCC,Pre-pandemic,2019-06-01,62,Female,3,Symptomatic,NA,Yes,Inconsistent,NA,5.6,NA,HCV,Yes,Yes,No,19,IV,IV,D,NA,Supportive care,Supportive care,NA,NA,NA,1.13,Dead,1
+89,HCC,Pre-pandemic,2019-06-01,81,Male,1,Surveillance,NA,Yes,Consistent,US,6.1,NA,NAFLD,Yes,Yes,No,40,IV,IV,C,NA,Supportive care,Supportive care,NA,NA,NA,8.87,Dead,1
+90,HCC,Pre-pandemic,2019-06-01,82,Male,3,Symptomatic,NA,No,NA,NA,NA,NA,NAFLD,No,NA,Yes,49,IV,IV,D,NA,Supportive care,Supportive care,NA,NA,NA,0.8,Dead,1
+91,HCC,Pre-pandemic,2019-06-01,77,Male,0,Symptomatic,NA,No,NA,NA,NA,NA,NAFLD,Yes,No,No,50,III,III,B,NA,TACE,Non-curative,1.3,1.33,NA,27.47,Alive,0
+92,HCC,Pre-pandemic,2019-06-01,74,Male,2,Incidental,Secondary care - acute,No,NA,NA,NA,NA,NAFLD,No,No,No,76,I,I,C,NA,TACE,Non-curative,NA,NA,NA,19.1,Dead,1
+93,HCC,Pre-pandemic,2019-06-01,50,Male,0,Incidental,Primary care - routine,No,NA,NA,NA,NA,NAFLD,Yes,No,No,100,III,III,B,NA,SIRT,Non-curative,1.93,1.73,NA,10.5,Dead,1
+94,HCC,Pre-pandemic,2019-06-01,80,Female,3,Symptomatic,NA,No,NA,NA,NA,NA,ARLD,Yes,No,No,15,I,I,D,NA,Supportive care,Supportive care,NA,NA,NA,2.63,Dead,1
+95,HCC,Pre-pandemic,2019-06-01,72,Male,1,Symptomatic,NA,No,NA,NA,NA,NA,HH,No,No,No,50,III,III,C,NA,SIRT,Non-curative,4.47,5.27,NA,27,Alive,0
+96,HCC,Pre-pandemic,2019-06-01,55,Male,1,Surveillance,NA,Yes,Consistent,US,14.43333333,NA,PBC/AIH,Yes,Yes,No,43,III,III,C,NA,OLTx,Curative,1.8,1.8,NA,10.13,Dead,1
+97,HCC,Pre-pandemic,2019-07-01,91,Male,1,Incidental,Primary care - routine,No,NA,NA,NA,NA,No established CLD,No,No,No,96,III,III,C,NA,Supportive care,Supportive care,NA,NA,NA,11.33,Dead,1
+98,HCC,Pre-pandemic,2019-07-01,76,Male,0,Surveillance,NA,Yes,Consistent,US,5.666666667,NA,HH,No,No,No,31,II,II,B,NA,TACE,Non-curative,1.17,1.53,NA,26.8,Alive,0
+99,HCC,Pre-pandemic,2019-07-01,79,Female,1,Symptomatic,NA,No,NA,NA,NA,NA,PBC/AIH,No,No,No,12,I,I,C,NA,Supportive care,Supportive care,NA,NA,NA,0.27,Dead,1
+100,HCC,Pre-pandemic,2019-07-01,75,Male,1,Incidental,Secondary care - acute,No,NA,NA,NA,NA,No established CLD,No,No,No,75,III,III,C,NA,Supportive care,Supportive care,NA,NA,NA,10.47,Dead,1
+101,HCC,Pre-pandemic,2019-07-01,82,Male,2,Incidental,Secondary care - acute,No,NA,NA,NA,NA,No established CLD,No,No,No,90,I,I,C,NA,Supportive care,Supportive care,NA,NA,NA,8.13,Dead,1
+102,HCC,Pre-pandemic,2019-07-01,90,Male,2,Incidental,Secondary care - routine,No,NA,NA,NA,NA,No established CLD,No,No,No,60,I,I,C,NA,Supportive care,Supportive care,NA,NA,NA,26.57,Alive,0
+103,HCC,Pre-pandemic,2019-07-01,82,Male,1,Incidental,Secondary care - acute,No,NA,NA,NA,NA,NAFLD,No,No,No,21,I,I,C,NA,Supportive care,Supportive care,NA,NA,NA,26.57,Alive,0
+104,HCC,Pre-pandemic,2019-07-01,81,Male,2,Incidental,Secondary care - routine,No,NA,NA,NA,NA,ARLD,Yes,Yes,No,37,III,III,C,NA,Supportive care,Supportive care,NA,NA,NA,20.5,Dead,1
+105,HCC,Pre-pandemic,2019-07-01,65,Male,3,Incidental,Secondary care - acute,No,NA,NA,NA,NA,NAFLD,Yes,No,No,80,III,III,D,NA,Supportive care,Supportive care,NA,NA,NA,0.43,Dead,1
+106,HCC,Pre-pandemic,2019-07-01,60,Male,2,Surveillance,NA,Yes,Consistent,US,5.9,NA,HCV,Yes,Yes,No,20,I,I,C,NA,Ablation,Curative,0,5.2,NA,2.63,Dead,1
+107,HCC,Pre-pandemic,2019-07-01,67,Male,3,Incidental,Secondary care - routine,No,NA,NA,NA,NA,NAFLD,Yes,Yes,No,42,IV,IV,D,NA,Supportive care,Supportive care,NA,NA,NA,2.4,Dead,1
+108,HCC,Pre-pandemic,2019-07-01,82,Male,3,Incidental,Secondary care - acute,No,NA,NA,NA,NA,ARLD,Yes,No,No,36,III,III,D,NA,Supportive care,Supportive care,NA,NA,NA,11.8,Dead,1
+109,HCC,Pre-pandemic,2019-07-01,72,Female,1,Incidental,Secondary care - acute,No,NA,NA,NA,NA,No established CLD,No,No,No,150,I,I,C,NA,SIRT,Non-curative,NA,2.93,NA,26.33,Alive,0
+110,HCC,Pre-pandemic,2019-07-01,62,Female,1,Incidental,Secondary care - acute,No,NA,NA,NA,NA,HCV,Yes,No,No,50,III,III,C,NA,Supportive care,Supportive care,NA,NA,NA,4.5,Dead,1
+111,HCC,Pre-pandemic,2019-07-01,78,Female,2,Surveillance,NA,Yes,Consistent,US,6.466666667,NA,NAFLD,Yes,Yes,No,24,I,I,C,NA,TACE,Non-curative,5.77,5.8,NA,26.1,Alive,0
+112,HCC,Pre-pandemic,2019-08-01,83,Female,2,Surveillance,NA,Yes,Consistent,US,6.266666667,NA,NAFLD,Yes,Yes,No,19,I,I,C,NA,Supportive care,Supportive care,NA,NA,NA,25.87,Alive,0
+113,HCC,Pre-pandemic,2019-08-01,74,Male,0,Incidental,Secondary care - acute,No,NA,NA,NA,NA,HH,Yes,Yes,No,36,I,I,A,NA,TACE,Non-curative,1.87,1.87,NA,25.87,Alive,0
+114,HCC,Pre-pandemic,2019-08-01,69,Male,0,Incidental,Primary care - routine,No,NA,NA,NA,NA,ARLD,No,No,No,40,I,I,A,NA,TACE,Non-curative,8.4,8.53,NA,25.63,Alive,0
+115,HCC,Pre-pandemic,2019-08-01,82,Male,0,Symptomatic,NA,No,NA,NA,NA,NA,NAFLD,No,No,No,25,I,I,A,NA,TACE,Non-curative,NA,NA,NA,25.63,Alive,0
+116,HCC,Pre-pandemic,2019-08-01,79,Female,0,Surveillance,NA,Yes,Consistent,US,4.366666667,NA,NAFLD,Yes,Yes,No,35,I,I,A,NA,Supportive care,Supportive care,NA,NA,NA,25.63,Alive,0
+117,HCC,Pre-pandemic,2019-08-01,56,Male,1,Surveillance,NA,Yes,Consistent,AFP alone,8.933333333,NA,Other,No,No,No,32,I,I,C,NA,TACE,Non-curative,NA,NA,NA,25.63,Alive,0
+118,HCC,Pre-pandemic,2019-08-01,91,Male,3,Symptomatic,NA,No,NA,NA,NA,NA,No established CLD,No,No,No,47,I,I,D,NA,Supportive care,Supportive care,NA,NA,NA,2.77,Dead,1
+119,HCC,Pre-pandemic,2019-08-01,68,Female,1,Incidental,Secondary care - acute,No,NA,NA,NA,NA,No established CLD,No,No,No,100,IV,IV,C,NA,Supportive care,Supportive care,NA,NA,NA,0.53,Dead,1
+120,HCC,Pre-pandemic,2019-08-01,67,Male,1,Incidental,Secondary care - acute,No,NA,NA,NA,NA,NAFLD,Yes,No,No,34,I,I,C,NA,TACE,Non-curative,2.5,1.73,NA,25.4,Alive,0
+121,HCC,Pre-pandemic,2019-08-01,60,Male,2,Surveillance,NA,Yes,Inconsistent,US,18.86666667,NA,ARLD,Yes,Yes,No,27,III,III,C,NA,TACE,Non-curative,NA,NA,NA,21.9,Dead,1
+122,HCC,Pre-pandemic,2019-08-01,61,Male,0,Incidental,Primary care - routine,No,NA,NA,NA,NA,ARLD,Yes,No,No,32,I,I,A,NA,OLTx,Curative,9.23,8.53,NA,25.17,Alive,0
+123,HCC,Pre-pandemic,2019-08-01,71,Male,1,Symptomatic,NA,No,NA,NA,NA,NA,No established CLD,No,No,No,70,IV,IV,C,NA,Supportive care,Supportive care,NA,NA,NA,0.73,Dead,1
+124,HCC,Pre-pandemic,2019-08-01,44,Male,0,Surveillance,NA,Yes,Inconsistent,US,27.53333333,NA,HCV,Yes,Yes,No,18,II,II,A,NA,TACE,Non-curative,0.93,1.07,NA,25.17,Alive,0
+125,HCC,Pre-pandemic,2019-08-01,65,Male,0,Surveillance,NA,Yes,NA,US,3.933333333,NA,ARLD,Yes,Yes,No,24,II,II,B,NA,TACE,Non-curative,2.03,1.03,NA,25.17,Alive,0
+126,HCC,Pre-pandemic,2019-08-01,71,Male,1,Incidental,Secondary care - acute,No,NA,NA,NA,NA,ARLD,Yes,No,No,10,IV,IV,C,NA,Supportive care,Supportive care,NA,NA,NA,3.13,Dead,1
+127,HCC,Pre-pandemic,2019-08-01,67,Male,1,Symptomatic,NA,No,NA,NA,NA,NA,ARLD,Yes,Yes,No,16,I,I,D,NA,Supportive care,Supportive care,NA,NA,NA,2.3,Dead,1
+128,HCC,Pre-pandemic,2019-09-01,48,Male,0,Surveillance,NA,Yes,Consistent,US,6.133333333,NA,HCV,No,No,No,18,IV,IV,C,NA,Medical,Non-curative,NA,NA,NA,24.73,Alive,0
+129,HCC,Pre-pandemic,2019-09-01,80,Male,1,Incidental,Primary care - routine,No,NA,NA,NA,NA,NAFLD,Yes,No,No,80,III,III,C,NA,Medical,Non-curative,NA,NA,NA,24.73,Alive,0
+130,HCC,Pre-pandemic,2019-09-01,73,Male,1,Symptomatic,NA,No,NA,NA,NA,NA,ARLD,No,No,No,60,III,III,C,NA,Supportive care,Supportive care,NA,NA,NA,2.87,Dead,1
+131,HCC,Pre-pandemic,2019-09-01,58,Female,2,Symptomatic,NA,Yes,Missed,NA,17.3,NA,ARLD,Yes,Yes,No,70,III,III,D,NA,Supportive care,Supportive care,NA,NA,NA,0,Dead,1
+132,HCC,Pre-pandemic,2019-09-01,74,Female,2,Surveillance,NA,Yes,Consistent,US,10.6,NA,NAFLD,Yes,Yes,No,14,I,I,D,NA,Supportive care,Supportive care,NA,NA,NA,24.5,Alive,0
+133,HCC,Pre-pandemic,2019-09-01,60,Male,1,Surveillance,NA,Yes,Consistent,AFP alone,6,NA,HCV,Yes,Yes,No,NA,III,III,C,NA,Supportive care,Supportive care,NA,NA,NA,1.27,Dead,1
+134,HCC,Pre-pandemic,2019-09-01,75,Female,1,Surveillance,NA,Yes,Consistent,AFP alone,5.7,NA,PBC/AIH,Yes,Yes,No,24,I,I,C,NA,TACE,Non-curative,0.93,0.93,NA,24.5,Alive,0
+135,HCC,Pre-pandemic,2019-09-01,73,Male,0,Surveillance,NA,Yes,Consistent,US,4.8,NA,NAFLD,Yes,Yes,No,26,I,I,A,NA,TACE,Non-curative,13.03,1.57,NA,24.5,Alive,0
+136,HCC,Pre-pandemic,2019-09-01,56,Female,3,Symptomatic,NA,No,NA,NA,NA,NA,ARLD,Yes,Yes,No,80,I,I,D,NA,Supportive care,Supportive care,NA,NA,NA,5.47,Dead,1
+137,HCC,Pre-pandemic,2019-09-01,75,Male,1,Incidental,Primary care - routine,No,NA,NA,NA,NA,ARLD,Yes,No,No,NA,IV,IV,C,NA,Supportive care,Supportive care,NA,NA,NA,3.3,Dead,1
+138,HCC,Pre-pandemic,2019-09-01,72,Male,0,Surveillance,NA,Yes,Consistent,US,9.566666667,NA,ARLD,Yes,Yes,No,42,I,I,A,NA,TACE,Non-curative,0.53,0.5,NA,24.27,Alive,0
+139,HCC,Pre-pandemic,2019-09-01,77,Female,1,Symptomatic,NA,No,NA,NA,NA,NA,ARLD,Yes,NA,No,90,II,II,C,NA,Ablation,Curative,NA,NA,NA,24.27,Alive,0
+140,HCC,Pre-pandemic,2019-09-01,77,Male,1,Incidental,Secondary care - routine,No,NA,NA,NA,NA,No established CLD,No,No,No,20,I,I,C,NA,TACE,Non-curative,NA,NA,NA,5.63,Dead,1
+141,HCC,Pre-pandemic,2019-09-01,79,Female,3,Incidental,Secondary care - acute,No,NA,NA,NA,NA,No established CLD,No,No,No,20,I,I,D,NA,Supportive care,Supportive care,NA,NA,NA,24.27,Alive,0
+142,HCC,Pre-pandemic,2019-09-01,55,Male,1,Surveillance,NA,Yes,NA,US,NA,NA,HCV,Yes,Yes,No,15,I,I,C,NA,Ablation,Curative,5.1,4.1,NA,24.03,Alive,0
+143,HCC,Pre-pandemic,2019-09-01,73,Male,2,Incidental,Secondary care - acute,No,NA,NA,NA,NA,ARLD,Yes,NA,No,44,II,II,C,NA,Supportive care,Supportive care,NA,NA,NA,1.03,Dead,1
+144,HCC,Pre-pandemic,2019-09-01,85,Female,0,Incidental,Secondary care - acute,No,NA,NA,NA,NA,NAFLD,No,No,No,53,I,I,A,NA,Resection,Curative,NA,NA,NA,24.03,Alive,0
+145,HCC,Pre-pandemic,2019-09-01,81,Male,2,Surveillance,NA,Yes,Consistent,AFP alone,5.966666667,NA,NAFLD,Yes,Yes,No,35,II,II,C,NA,Supportive care,Supportive care,NA,NA,NA,13.63,Dead,1
+146,HCC,Pre-pandemic,2019-10-01,75,Male,1,Symptomatic,NA,No,NA,NA,NA,NA,ARLD,Yes,Yes,No,150,IV,IV,C,NA,Medical,Non-curative,4.87,1.87,NA,4.17,Dead,1
+147,HCC,Pre-pandemic,2019-10-01,62,Female,0,Symptomatic,NA,No,NA,NA,NA,NA,No established CLD,No,No,No,107,I,I,B,NA,Resection,Curative,1.3,1.07,NA,23.8,Alive,0
+148,HCC,Pre-pandemic,2019-10-01,71,Male,0,Symptomatic,Secondary care - routine,Yes,Inconsistent,NA,10.7,NA,ARLD,Yes,Yes,No,10,I,I,A,NA,TACE,Non-curative,4.77,0.87,NA,23.8,Alive,0
+149,HCC,Pre-pandemic,2019-10-01,72,Male,2,Symptomatic,NA,No,NA,NA,NA,NA,NAFLD,Yes,Yes,No,27,III,III,C,NA,Supportive care,Supportive care,NA,NA,NA,23.8,Alive,0
+150,HCC,Pre-pandemic,2019-10-01,70,Male,3,Incidental,Secondary care - acute,No,NA,NA,NA,NA,ARLD,Yes,No,No,55,II,II,D,NA,Supportive care,Supportive care,NA,NA,NA,4,Dead,1
+151,HCC,Pre-pandemic,2019-10-01,77,Male,2,Symptomatic,NA,No,NA,NA,NA,NA,ARLD,Yes,NA,No,200,IV,IV,C,NA,Supportive care,Supportive care,NA,NA,NA,1.83,Dead,1
+152,HCC,Pre-pandemic,2019-10-01,62,Male,2,Surveillance,NA,Yes,Consistent,AFP alone,5.3,NA,ARLD,Yes,Yes,No,10,I,I,C,NA,TACE,Non-curative,NA,NA,NA,23.57,Alive,0
+153,HCC,Pre-pandemic,2019-10-01,70,Male,1,Symptomatic,NA,No,NA,NA,NA,NA,ARLD,Yes,No,No,50,II,II,C,NA,TACE,Non-curative,NA,NA,NA,23.57,Alive,0
+154,HCC,Pre-pandemic,2019-10-01,65,Male,0,Surveillance,NA,Yes,Consistent,AFP alone,27.86666667,NA,ARLD,Yes,Yes,No,20,I,I,A,NA,Ablation,Curative,NA,NA,NA,23.33,Alive,0
+155,HCC,Pre-pandemic,2019-11-01,84,Female,1,Incidental,Primary care - routine,No,NA,NA,NA,NA,NAFLD,Yes,No,No,40,III,III,C,NA,Supportive care,Supportive care,NA,NA,NA,3.73,Dead,1
+156,HCC,Pre-pandemic,2019-11-01,80,Female,3,Incidental,Secondary care - acute,No,NA,NA,NA,NA,NAFLD,No,No,No,20,I,I,D,NA,Supportive care,Supportive care,NA,NA,NA,22.67,Alive,0
+157,HCC,Pre-pandemic,2019-11-01,52,Male,4,Surveillance,NA,Yes,Consistent,AFP alone,18.46666667,NA,NAFLD,Yes,No,No,59,III,III,D,NA,TACE,Non-curative,6.17,3.87,1.1,12.17,Dead,1
+158,HCC,Pre-pandemic,2019-11-01,77,Male,1,Incidental,Secondary care - acute,No,NA,NA,NA,NA,NAFLD,No,No,No,55,I,I,C,NA,Resection,Curative,2.33,3.37,NA,22.67,Alive,0
+159,HCC,Pre-pandemic,2019-11-01,73,Male,2,Surveillance,NA,Yes,Missed,CT/MRI,12.6,NA,NAFLD,Yes,Yes,No,15,III,III,C,NA,Supportive care,Supportive care,NA,NA,NA,22.67,Alive,0
+160,HCC,Pre-pandemic,2019-11-01,73,Male,3,Symptomatic,NA,No,NA,NA,NA,NA,No established CLD,No,No,No,133,I,I,D,NA,SIRT,Non-curative,1.9,2.5,1.7,21.33,Dead,1
+161,HCC,Pre-pandemic,2019-11-01,89,Male,3,Incidental,Secondary care - acute,No,NA,NA,NA,NA,No established CLD,Yes,No,No,80,III,III,D,NA,Supportive care,Supportive care,NA,NA,NA,0.2,Dead,1
+162,HCC,Pre-pandemic,2019-11-01,51,Male,3,Symptomatic,NA,No,NA,NA,NA,NA,ARLD,Yes,Yes,No,60,III,III,D,NA,Supportive care,Supportive care,NA,NA,NA,0.1,Dead,1
+163,HCC,Pre-pandemic,2019-11-01,80,Male,1,Symptomatic,NA,No,NA,NA,NA,NA,NAFLD,Yes,No,No,28,II,II,C,NA,Supportive care,Supportive care,NA,NA,NA,14.1,Dead,1
+164,HCC,Pre-pandemic,2019-11-01,80,Male,3,Incidental,Secondary care - acute,No,NA,NA,NA,NA,NAFLD,No,No,No,29,I,I,D,NA,Supportive care,Supportive care,NA,NA,NA,22.43,Alive,0
+165,HCC,Pre-pandemic,2019-11-01,72,Male,0,Incidental,Secondary care - acute,No,NA,NA,NA,NA,ARLD,Yes,Yes,No,35,I,I,A,NA,TACE,Non-curative,1.4,0.6,0.83,22.2,Alive,0
+166,HCC,Pre-pandemic,2019-11-01,78,Male,1,Incidental,Secondary care - acute,No,NA,NA,NA,NA,No established CLD,No,No,No,92,III,III,C,NA,Supportive care,Supportive care,NA,NA,NA,22.2,Alive,0
+167,HCC,Pre-pandemic,2019-11-01,74,Male,2,Incidental,Secondary care - routine,No,NA,NA,NA,NA,No established CLD,Yes,No,No,18,I,I,C,NA,Supportive care,Supportive care,NA,NA,NA,0.5,Dead,1
+168,HCC,Pre-pandemic,2019-11-01,65,Male,0,Surveillance,NA,Yes,Consistent,AFP alone,2.633333333,NA,ARLD,Yes,Yes,No,32,II,II,A,NA,TACE,Non-curative,1.5,0.83,0.5,22.2,Alive,0
+169,HCC,Pre-pandemic,2019-11-01,65,Male,1,Symptomatic,NA,No,NA,NA,NA,NA,ARLD,Yes,No,No,78,III,III,C,NA,Supportive care,Supportive care,NA,NA,NA,4.3,Dead,1
+170,HCC,Pre-pandemic,2019-11-01,74,Male,1,Incidental,Primary care - routine,No,NA,NA,NA,NA,NAFLD,No,No,No,40,III,III,C,NA,Supportive care,Supportive care,NA,NA,NA,2.9,Dead,1
+171,HCC,Pre-pandemic,2019-12-01,65,Male,0,Symptomatic,NA,No,NA,NA,NA,NA,HH,No,No,No,110,I,I,A,NA,Supportive care,Supportive care,NA,NA,NA,21.77,Alive,0
+172,HCC,Pre-pandemic,2019-12-01,85,Male,1,Incidental,Secondary care - acute,No,NA,NA,NA,NA,NAFLD,Yes,No,No,30,I,I,C,NA,Supportive care,Supportive care,NA,NA,NA,20.67,Dead,1
+173,HCC,Pre-pandemic,2019-12-01,70,Male,2,Symptomatic,NA,No,NA,NA,NA,NA,ARLD,Yes,Yes,No,48,II,II,C,NA,Supportive care,Supportive care,NA,NA,NA,0.6,Dead,1
+174,HCC,Pre-pandemic,2019-12-01,83,Female,0,Incidental,Primary care - routine,No,NA,NA,NA,NA,NAFLD,No,No,No,84,III,III,A,NA,SIRT,Non-curative,3.47,2.8,1.47,21.5,Dead,1
+175,HCC,Pre-pandemic,2019-12-01,56,Male,0,Surveillance,NA,Yes,Consistent,US,3.7,NA,Other,No,No,No,14,I,I,A,NA,Ablation,Curative,0,0.97,0.97,21.77,Alive,0
+176,HCC,Pre-pandemic,2019-12-01,67,Male,0,Incidental,Secondary care - routine,No,NA,NA,NA,NA,HCV,No,No,No,18,I,I,A,NA,Ablation,Curative,0,1.67,1.43,21.77,Alive,0
+177,HCC,Pre-pandemic,2019-12-01,64,Male,3,Surveillance,NA,Yes,Missed,US,40.93333333,NA,NAFLD,Yes,Yes,No,75,III,III,D,NA,Supportive care,Supportive care,NA,NA,NA,7.03,Dead,1
+178,HCC,Pre-pandemic,2019-12-01,66,Male,2,Symptomatic,NA,No,NA,NA,NA,NA,ARLD,Yes,No,No,38,II,II,D,NA,Supportive care,Supportive care,NA,NA,NA,21.53,Alive,0
+179,HCC,Pre-pandemic,2019-12-01,83,Female,1,Surveillance,NA,Yes,Consistent,AFP alone,6.333333333,NA,PBC/AIH,Yes,Yes,No,18,II,II,C,NA,TACE,Non-curative,4.13,2.27,1.63,21.53,Alive,0
+180,HCC,Pre-pandemic,2019-12-01,55,Male,1,Surveillance,NA,Yes,NA,US,NA,NA,HCV,Yes,Yes,No,16,I,I,C,NA,Ablation,Curative,3.07,2.37,1.9,21.53,Alive,0
+181,HCC,Pre-pandemic,2019-12-01,69,Male,3,Symptomatic,NA,Yes,Missed,NA,24.7,NA,ARLD,Yes,Yes,No,54,I,I,D,NA,Supportive care,Supportive care,NA,NA,NA,6.47,Dead,1
+182,HCC,Pre-pandemic,2019-12-01,65,Female,1,Surveillance,NA,Yes,Missed,US,14.63333333,NA,PBC/AIH,Yes,Yes,No,14,I,I,D,NA,Supportive care,Supportive care,NA,NA,NA,20.53,Dead,1
+183,HCC,Pre-pandemic,2019-12-01,65,Male,3,Incidental,Secondary care - acute,No,NA,NA,NA,NA,HCV,Yes,No,No,NA,III,III,D,NA,Supportive care,Supportive care,NA,NA,NA,5.23,Dead,1
+184,HCC,Pre-pandemic,2019-12-01,61,Male,1,Surveillance,NA,Yes,Consistent,US,7.466666667,NA,ARLD,Yes,Yes,No,20,I,I,C,NA,Ablation,Curative,0.03,6.27,4.17,21.3,Alive,0
+185,HCC,Pre-pandemic,2019-12-01,77,Female,0,Symptomatic,NA,No,NA,NA,NA,NA,NAFLD,No,No,No,70,IV,IV,C,NA,Supportive care,Supportive care,NA,NA,NA,7.83,Dead,1
+186,HCC,Pre-pandemic,2019-12-01,73,Male,0,Surveillance,NA,Yes,Consistent,AFP alone,0.33,NA,NAFLD,Yes,Yes,No,48,II,II,A,NA,Supportive care,Supportive care,NA,NA,NA,5.07,Dead,1
+187,HCC,Pre-pandemic,2019-12-01,62,Male,3,Surveillance,NA,Yes,Missed,US,16.56666667,NA,HCV,Yes,Yes,No,22,II,II,D,NA,Supportive care,Supportive care,NA,NA,NA,9.87,Dead,1
+188,HCC,Pre-pandemic,2019-12-01,54,Male,1,Surveillance,NA,Yes,Inconsistent,US,13.23333333,NA,Other,Yes,Yes,No,60,III,III,C,NA,SIRT,Non-curative,1.87,2.33,1.87,21.3,Alive,0
+189,HCC,Pre-pandemic,2019-12-01,66,Male,1,Incidental,Primary care - routine,No,NA,NA,NA,NA,NAFLD,Yes,Yes,No,18,I,I,C,NA,Ablation,Curative,0,2.1,0.93,21.07,Alive,0
+190,HCC,Pre-pandemic,2019-12-01,68,Male,1,Incidental,Primary care - routine,No,NA,NA,NA,NA,NAFLD,Yes,No,No,64,III,III,C,NA,Supportive care,Supportive care,NA,NA,NA,10.47,Dead,1
+191,HCC,Pre-pandemic,2019-12-01,79,Female,3,Symptomatic,NA,No,NA,NA,NA,NA,NAFLD,No,No,No,95,III,III,D,NA,Supportive care,Supportive care,NA,NA,NA,1.07,Dead,1
+192,HCC,Pandemic,2021-01-01,54,Male,0,Surveillance,NA,Yes,Consistent,US,5.933333333,No,HCV,Yes,Yes,No,36,IV,IV,C,NA,TACE,Non-curative,2.27,1.27,1.23,20.57,Alive,0
+193,HCC,Pandemic,2021-01-01,45,Female,0,Surveillance,NA,Yes,Consistent,US,3.833333333,No,ARLD,Yes,Yes,No,13,II,II,A,NA,Ablation,Curative,3.07,1.1,0.67,20.33,Alive,0
+194,HCC,Pandemic,2021-01-01,66,Male,0,Symptomatic,NA,No,NA,NA,NA,NA,No established CLD,No,No,No,210,IV,IV,C,NA,Supportive care,Supportive care,NA,NA,NA,20.33,Alive,0
+195,HCC,Pandemic,2021-02-01,82,Male,0,Symptomatic,NA,No,Missed,NA,NA,NA,ARLD,Yes,No,No,75,I,I,A,NA,SIRT,Non-curative,NA,1.87,1.73,16,Dead,1
+196,HCC,Pandemic,2021-02-01,69,Male,1,Symptomatic,NA,No,NA,NA,NA,NA,No established CLD,No,No,No,19,II,II,C,NA,Supportive care,Supportive care,NA,NA,NA,2.13,Dead,1
+197,HCC,Pandemic,2021-02-01,58,Male,0,Symptomatic,NA,Yes,Missed,NA,67.73333333,Yes,HCV,Yes,Yes,No,58,III,III,B,NA,SIRT,Non-curative,1.3,1.73,0.8,4.63,Dead,1
+198,HCC,Pandemic,2021-02-01,77,Male,3,Incidental,Primary care - routine,No,NA,NA,NA,NA,ARLD,Yes,No,No,39,III,III,D,NA,Supportive care,Supportive care,NA,NA,NA,2.1,Dead,1
+199,HCC,Pandemic,2021-02-01,75,Male,2,Incidental,Secondary care - acute,No,NA,NA,NA,NA,NAFLD,No,No,No,150,III,III,D,NA,Supportive care,Supportive care,NA,NA,NA,0.97,Dead,1
+200,HCC,Pandemic,2021-02-01,96,Male,1,Symptomatic,NA,No,NA,NA,NA,NA,NAFLD,No,No,Yes,75,I,I,C,NA,Supportive care,Supportive care,NA,NA,NA,19.43,Alive,0
+201,HCC,Pandemic,2021-02-01,68,Male,1,Surveillance,NA,Yes,Missed,AFP alone,6.666666667,Yes,ARLD,Yes,Yes,No,30,II,II,C,NA,TACE,Non-curative,1.27,0.37,0.37,17.47,Dead,1
+202,HCC,Pandemic,2021-02-01,78,Male,0,Surveillance,NA,Yes,Consistent,US,5.733333333,Yes,Other,Yes,Yes,No,120,III,III,C,NA,SIRT,Non-curative,2.13,1.77,1.63,19.43,Alive,0
+203,HCC,Pandemic,2021-02-01,76,Male,1,Surveillance,NA,Yes,Inconsistent,US,NA,No,NAFLD,Yes,Yes,No,30,II,II,C,NA,Medical,Non-curative,1.47,1.8,0.4,19.2,Alive,0
+204,HCC,Pandemic,2021-02-01,66,Male,2,Surveillance,NA,Yes,Consistent,US,5.9,No,ARLD,Yes,Yes,No,28,II,II,C,NA,Ablation,Curative,2.83,1.6,1.13,19.2,Alive,0
+205,HCC,Pandemic,2021-02-01,65,Male,3,Symptomatic,NA,No,NA,NA,NA,NA,ARLD,Yes,No,No,32,II,II,D,NA,Supportive care,Supportive care,NA,NA,NA,4.37,Dead,1
+206,HCC,Pandemic,2021-02-01,62,Male,0,Incidental,Secondary care - routine,No,NA,NA,NA,NA,NAFLD,No,No,No,20,II,II,A,NA,Ablation,Curative,1.2,2.3,0.73,18.97,Alive,0
+207,HCC,Pandemic,2021-02-01,76,Male,2,Symptomatic,NA,No,NA,NA,NA,NA,NAFLD,Yes,No,No,50,III,III,C,NA,Supportive care,Supportive care,NA,NA,NA,18.97,Alive,0
+208,HCC,Pandemic,2020-03-01,81,Male,2,Symptomatic,NA,No,NA,NA,NA,NA,No established CLD,No,No,No,70,III,III,C,NA,Supportive care,Supportive care,NA,NA,NA,2.27,Dead,1
+209,HCC,Pandemic,2020-03-01,75,Male,2,Symptomatic,NA,No,NA,NA,NA,NA,No established CLD,No,No,No,100,I,I,C,NA,Supportive care,Supportive care,NA,NA,NA,7.57,Dead,1
+210,HCC,Pandemic,2020-03-01,78,Male,3,Incidental,Secondary care - acute,No,NA,NA,NA,NA,No established CLD,No,No,No,50,I,I,D,NA,SIRT,Non-curative,NA,NA,NA,18.5,Alive,0
+211,HCC,Pandemic,2020-03-01,70,Male,0,Incidental,Primary care - routine,No,NA,NA,NA,NA,ARLD,No,No,No,40,I,I,A,NA,TACE,Non-curative,1.4,1.4,0.73,14.57,Alive,0
+212,HCC,Pandemic,2020-03-01,60,Male,0,Surveillance,NA,Yes,Consistent,US,NA,No,HH,Yes,Yes,No,18,III,III,C,NA,TACE,Non-curative,NA,NA,NA,18.27,Alive,0
+213,HCC,Pandemic,2020-03-01,77,Male,3,Symptomatic,NA,No,NA,NA,NA,NA,ARLD,Yes,No,No,55,IV,IV,D,NA,Supportive care,Supportive care,NA,NA,NA,1.43,Dead,1
+214,HCC,Pandemic,2020-04-01,78,Male,1,Incidental,Secondary care - acute,No,NA,NA,NA,NA,HH,No,No,No,92,III,III,C,NA,TACE,Non-curative,NA,NA,NA,16.37,Dead,1
+215,HCC,Pandemic,2020-04-01,78,Female,0,Surveillance,NA,Yes,NA,US,NA,Yes,NAFLD,No,No,No,51,I,I,B,NA,TACE,Non-curative,0.93,1.53,0.7,13.67,Alive,0
+216,HCC,Pandemic,2020-04-01,62,Male,0,Incidental,Secondary care - acute,No,NA,NA,NA,NA,ARLD,Yes,No,No,20,I,I,A,NA,Ablation,Curative,2,3.67,0.7,17.6,Alive,0
+217,HCC,Pandemic,2020-04-01,62,Male,3,Surveillance,NA,Yes,Consistent,US,4.033333333,Yes,ARLD,Yes,Yes,No,65,III,III,D,NA,Supportive care,Supportive care,NA,NA,NA,11.93,Dead,1
+218,HCC,Pandemic,2020-04-01,71,Male,4,Symptomatic,NA,No,NA,NA,NA,NA,NAFLD,No,No,No,87,IV,IV,C,NA,Supportive care,Supportive care,NA,NA,NA,1.8,Dead,1
+219,HCC,Pandemic,2020-04-01,62,Male,3,Incidental,Secondary care - acute,Yes,NA,NA,NA,NA,NAFLD,Yes,Yes,No,70,III,III,D,NA,Supportive care,Supportive care,NA,NA,NA,17.13,Alive,0
+220,HCC,Pandemic,2020-04-01,67,Male,0,Incidental,Secondary care - routine,No,NA,NA,NA,NA,No established CLD,No,No,No,89,I,I,A,NA,Resection,Curative,0.9,0.93,0.93,17.13,Alive,0
+221,HCC,Pandemic,2020-05-01,88,Male,2,Symptomatic,NA,No,NA,NA,NA,NA,ARLD,Yes,No,No,37,II,II,C,NA,Supportive care,Supportive care,NA,NA,NA,16.9,Alive,0
+222,HCC,Pandemic,2020-05-01,74,Male,0,Incidental,Secondary care - routine,No,NA,NA,NA,NA,NAFLD,No,No,No,60,I,I,A,NA,Resection,Curative,1.3,1.57,NA,16.9,Alive,0
+223,HCC,Pandemic,2020-05-01,71,Male,3,Symptomatic,NA,No,NA,NA,NA,NA,NAFLD,Yes,No,No,50,III,III,D,NA,Supportive care,Supportive care,NA,NA,NA,4.13,Dead,1
+224,HCC,Pandemic,2020-05-01,62,Female,1,Incidental,Secondary care - acute,No,NA,NA,NA,NA,HCV,Yes,No,No,21,I,I,B,NA,Ablation,Curative,NA,2.5,1.6,16.67,Alive,0
+225,HCC,Pandemic,2020-05-01,73,Male,2,Surveillance,NA,Yes,Consistent,US,8.033333333,No,NAFLD,Yes,Yes,No,15,I,I,C,NA,Ablation,Curative,1.2,1.8,0.43,16.43,Alive,0
+226,HCC,Pandemic,2020-05-01,69,Male,3,Incidental,Primary care - routine,No,NA,NA,NA,NA,NAFLD,Yes,No,No,150,III,III,D,NA,Supportive care,Supportive care,NA,NA,NA,0.63,Dead,1
+227,HCC,Pandemic,2020-05-01,71,Male,2,Incidental,Secondary care - routine,Yes,Inconsistent,CT/MRI,9.633333333,NA,HH,Yes,Yes,No,24,II,II,D,NA,Supportive care,Supportive care,NA,NA,NA,5.73,Dead,1
+228,HCC,Pandemic,2020-05-01,78,Male,0,Incidental,Secondary care - routine,No,NA,NA,NA,NA,NAFLD,Yes,No,No,32,II,II,B,NA,TACE,Non-curative,1.07,0.6,0.6,16.2,Alive,0
+229,HCC,Pandemic,2020-05-01,64,Male,0,Surveillance,NA,Yes,Consistent,US,NA,No,NAFLD,Yes,No,No,60,III,III,B,NA,Medical,Non-curative,NA,NA,NA,15.97,Alive,0
+230,HCC,Pandemic,2020-05-01,85,Male,3,Symptomatic,NA,No,NA,NA,NA,NA,ARLD,Yes,Yes,No,62,I,I,C,NA,Supportive care,Supportive care,NA,NA,NA,15.97,Alive,0
+231,HCC,Pandemic,2020-06-01,85,Male,1,Incidental,Secondary care - acute,No,NA,NA,NA,NA,HH,No,No,No,28,I,I,C,NA,Ablation,Curative,1.13,1.33,0.63,15.77,Alive,0
+232,HCC,Pandemic,2020-06-01,77,Female,3,Surveillance,NA,Yes,Inconsistent,US,12,Yes,PBC/AIH,Yes,Yes,No,35,I,I,C,NA,TACE,Non-curative,0.7,0.7,0.7,7.77,Dead,1
+233,HCC,Pandemic,2020-06-01,86,Male,1,Incidental,Secondary care - acute,No,NA,NA,NA,NA,NAFLD,No,No,No,70,I,I,C,NA,Supportive care,Supportive care,NA,NA,NA,6.13,Dead,1
+234,HCC,Pandemic,2020-06-01,46,Female,2,Symptomatic,NA,No,NA,NA,NA,NA,ARLD,Yes,Yes,No,20,II,II,D,NA,Supportive care,Supportive care,NA,NA,NA,15.53,Alive,0
+235,HCC,Pandemic,2020-06-01,65,Male,1,Symptomatic,NA,Yes,Consistent,NA,5.033333333,NA,HH,Yes,Yes,No,25,I,I,C,NA,Ablation,Curative,0,1.37,0.7,15.53,Alive,0
+236,HCC,Pandemic,2020-06-01,35,Male,2,Symptomatic,NA,Yes,Inconsistent,NA,11.26666667,NA,NAFLD,Yes,No,No,20,I,I,C,NA,Supportive care,Supportive care,NA,NA,NA,2.37,Dead,1
+237,HCC,Pandemic,2020-06-01,79,Male,1,Incidental,Secondary care - acute,No,NA,NA,NA,NA,No established CLD,No,No,No,60,I,I,C,NA,Supportive care,Supportive care,NA,NA,NA,15.3,Alive,0
+238,HCC,Pandemic,2020-06-01,66,Female,1,Symptomatic,NA,Yes,Missed,NA,34.36666667,NA,ARLD,Yes,Yes,No,32,II,II,D,NA,Supportive care,Supportive care,NA,NA,NA,8.57,Dead,1
+239,HCC,Pandemic,2020-06-01,85,Male,1,Incidental,Primary care - routine,No,NA,NA,NA,NA,No established CLD,No,No,No,100,IV,IV,C,NA,Supportive care,Supportive care,NA,NA,NA,15.07,Alive,0
+240,HCC,Pandemic,2020-06-01,71,Male,0,Symptomatic,NA,No,NA,NA,NA,NA,ARLD,Yes,No,No,15,I,I,A,NA,Ablation,Curative,3.27,4.8,NA,15.07,Alive,0
+241,HCC,Pandemic,2020-07-01,74,Female,2,Surveillance,NA,Yes,Inconsistent,US,10.6,No,NAFLD,Yes,Yes,No,14,I,I,D,NA,Supportive care,Supportive care,NA,NA,NA,14.87,Alive,0
+242,HCC,Pandemic,2020-07-01,63,Male,2,Symptomatic,NA,Yes,Missed,NA,18.9,NA,ARLD,Yes,Yes,No,19,II,II,D,NA,Supportive care,Supportive care,NA,NA,NA,0,Dead,1
+243,HCC,Pandemic,2020-07-01,59,Male,2,Surveillance,NA,Yes,Consistent,CT/MRI,6.633333333,No,NAFLD,Yes,Yes,No,30,III,III,C,NA,TACE,Non-curative,2.87,2.2,0.9,14.63,Alive,0
+244,HCC,Pandemic,2020-07-01,64,Female,0,Symptomatic,NA,No,NA,NA,NA,NA,No established CLD,No,No,No,120,IV,IV,C,NA,Supportive care,Supportive care,NA,NA,NA,1.37,Dead,1
+245,HCC,Pandemic,2020-07-01,67,Male,2,Surveillance,NA,Yes,Consistent,US,5.433333333,Yes,NAFLD,Yes,Yes,No,36,II,II,D,NA,Supportive care,Supportive care,NA,NA,NA,14.63,Alive,0
+246,HCC,Pandemic,2020-07-01,83,Male,2,Surveillance,NA,Yes,Inconsistent,AFP alone,6.333333333,Yes,ARLD,Yes,Yes,No,61,III,III,C,NA,Supportive care,Supportive care,NA,NA,NA,7,Dead,1
+247,HCC,Pandemic,2020-07-01,63,Male,0,Symptomatic,NA,No,NA,NA,NA,NA,NAFLD,Yes,No,No,24,I,I,A,NA,Ablation,Curative,2.87,2.07,1.37,14.63,Alive,0
+248,HCC,Pandemic,2020-07-01,62,Female,3,Symptomatic,NA,Yes,Consistent,NA,4.1,NA,NAFLD,Yes,Yes,No,25,III,III,D,NA,Supportive care,Supportive care,NA,NA,NA,1.07,Dead,1
+249,HCC,Pandemic,2020-07-01,76,Male,1,Incidental,Primary care - acute,No,NA,NA,NA,NA,No established CLD,No,No,No,14,II,II,C,NA,Supportive care,Supportive care,NA,NA,NA,7.67,Dead,1
+250,HCC,Pandemic,2020-07-01,78,Male,0,Surveillance,NA,Yes,Missed,CT/MRI,82.43333333,Yes,HH,No,No,No,25,II,II,A,NA,Ablation,Curative,1.67,2.07,1.37,14.17,Alive,0
+251,HCC,Pandemic,2020-07-01,71,Male,0,Incidental,Secondary care - acute,No,NA,NA,NA,NA,NAFLD,Yes,No,No,42,I,I,A,NA,TACE,Non-curative,1.57,2.23,0.83,14.17,Alive,0
+252,HCC,Pandemic,2020-08-01,79,Female,1,Symptomatic,NA,No,NA,NA,NA,NA,NAFLD,Yes,No,No,23,IV,IV,C,NA,Supportive care,Supportive care,NA,NA,NA,7.7,Dead,1
+253,HCC,Pandemic,2020-08-01,73,Male,0,Incidental,Secondary care - acute,No,NA,NA,NA,NA,NAFLD,Yes,No,No,18,I,I,A,NA,Ablation,Curative,3,1.03,1.03,13.93,Alive,0
+254,HCC,Pandemic,2020-08-01,64,Female,2,Incidental,Secondary care - acute,No,NA,NA,NA,NA,ARLD,Yes,No,No,43,III,III,D,NA,Supportive care,Supportive care,NA,NA,NA,3.43,Dead,1
+255,HCC,Pandemic,2020-08-01,69,Male,1,Surveillance,NA,Yes,Consistent,US,5.933333333,No,ARLD,Yes,Yes,No,30,II,II,C,NA,Supportive care,Supportive care,NA,NA,NA,13.93,Alive,0
+256,HCC,Pandemic,2020-08-01,83,Male,1,Incidental,Secondary care - routine,No,NA,NA,NA,NA,No established CLD,No,No,No,100,I,I,C,NA,Supportive care,Supportive care,NA,NA,NA,5.63,Dead,1
+257,HCC,Pandemic,2020-08-01,67,Male,0,Surveillance,NA,Yes,Inconsistent,US,8.1,Yes,ARLD,Yes,Yes,No,31,I,I,A,NA,TACE,Non-curative,NA,NA,NA,13.7,Alive,0
+258,HCC,Pandemic,2020-08-01,56,Male,2,Incidental,Primary care - routine,No,NA,NA,NA,NA,NAFLD,Yes,No,No,28,III,III,C,NA,Supportive care,Supportive care,NA,NA,NA,5.37,Dead,1
+259,HCC,Pandemic,2020-08-01,73,Female,2,Surveillance,NA,Yes,Consistent,US,5.466666667,Yes,NAFLD,Yes,Yes,No,20,I,I,C,NA,Supportive care,Supportive care,NA,NA,NA,13.47,Alive,0
+260,HCC,Pandemic,2020-08-01,63,Male,2,Incidental,Secondary care - routine,No,NA,NA,NA,NA,ARLD,Yes,No,No,44,I,I,C,NA,Supportive care,Supportive care,NA,NA,NA,9.23,Dead,1
+261,HCC,Pandemic,2020-08-01,72,Male,NA,Incidental,Primary care - routine,No,NA,NA,NA,NA,ARLD,Yes,No,No,22,II,II,C,NA,Ablation,Curative,2.27,2.27,2.03,13.47,Alive,0
+262,HCC,Pandemic,2020-08-01,82,Male,1,Surveillance,NA,Yes,Consistent,US,8.7,Yes,NAFLD,Yes,Yes,No,24,III,III,C,NA,TACE,Non-curative,0.63,0.63,0.5,13.47,Alive,0
+263,HCC,Pandemic,2020-08-01,84,Male,2,Incidental,Secondary care - acute,No,NA,NA,NA,NA,NAFLD,Yes,No,No,45,II,II,C,NA,Supportive care,Supportive care,NA,NA,NA,0.2,Dead,1
+264,HCC,Pandemic,2020-08-01,74,Male,0,Incidental,Primary care - routine,No,NA,NA,NA,NA,NAFLD,No,No,No,32,I,I,A,NA,TACE,Non-curative,1.4,2.03,0.53,13.23,Alive,0
+265,HCC,Pandemic,2020-08-01,76,Male,1,Symptomatic,NA,No,NA,NA,NA,NA,NAFLD,No,No,No,220,IV,IV,C,NA,Supportive care,Supportive care,NA,NA,NA,6.53,Dead,1
+266,HCC,Pandemic,2020-08-01,75,Female,1,Surveillance,NA,Yes,Inconsistent,US,9.433333333,Yes,NAFLD,Yes,Yes,No,18,I,I,C,NA,Ablation,Curative,0,2.5,1.83,13.23,Alive,0
+267,HCC,Pandemic,2020-08-01,71,Male,2,Incidental,Primary care - routine,No,NA,NA,NA,NA,Other,No,No,Yes,104,III,III,C,NA,Supportive care,Supportive care,NA,NA,NA,10.8,Dead,1
+268,HCC,Pandemic,2020-08-01,82,Male,2,Symptomatic,NA,No,NA,NA,NA,NA,NAFLD,No,No,No,200,IV,IV,C,NA,Supportive care,Supportive care,NA,NA,NA,1.3,Dead,1
+269,HCC,Pandemic,2020-09-01,68,Male,0,Incidental,Primary care - routine,No,NA,NA,NA,NA,NAFLD,No,No,No,50,II,II,B,NA,TACE,Non-curative,NA,NA,NA,12.8,Alive,0
+270,HCC,Pandemic,2020-09-01,78,Female,1,Surveillance,NA,Yes,Inconsistent,US,9.066666667,Yes,PBC/AIH,Yes,No,No,13,I,I,C,NA,TACE,Non-curative,NA,NA,NA,12.8,Alive,0
+271,HCC,Pandemic,2020-09-01,70,Male,0,Symptomatic,NA,No,NA,NA,NA,NA,NAFLD,No,No,No,44,I,I,A,NA,TACE,Non-curative,1.07,1.53,NA,12.8,Alive,0
+272,HCC,Pandemic,2020-09-01,73,Male,0,Surveillance,NA,Yes,Consistent,US,5.6,No,NAFLD,Yes,Yes,No,27,II,II,A,NA,Supportive care,Supportive care,NA,NA,NA,12.8,Alive,0
+273,HCC,Pandemic,2020-09-01,75,Male,0,Incidental,Primary care - routine,No,NA,NA,NA,NA,No established CLD,No,No,No,75,I,I,A,NA,SIRT,Non-curative,1.03,1.17,1.4,12.57,Alive,0
+274,HCC,Pandemic,2020-09-01,76,Male,2,Symptomatic,NA,No,NA,NA,NA,NA,ARLD,Yes,No,No,50,I,I,D,NA,Supportive care,Supportive care,NA,NA,NA,6.47,Dead,1
+275,HCC,Pandemic,2020-09-01,71,Male,3,Incidental,Secondary care - acute,Yes,Missed,NA,19.2,NA,NAFLD,Yes,Yes,No,54,I,I,D,NA,Supportive care,Supportive care,NA,NA,NA,5.4,Dead,1
+276,HCC,Pandemic,2020-09-01,64,Male,1,Surveillance,NA,Yes,Consistent,AFP alone,5.966666667,No,HH,Yes,Yes,No,17,I,I,C,NA,Ablation,Curative,NA,NA,NA,12.33,Alive,0
+277,HCC,Pandemic,2020-09-01,82,Male,3,Incidental,Primary care - routine,No,NA,NA,NA,NA,NAFLD,No,No,No,60,I,I,D,NA,Supportive care,Supportive care,NA,NA,NA,5.03,Dead,1
+278,HCC,Pandemic,2020-09-01,80,Male,2,Symptomatic,NA,No,NA,NA,NA,NA,NAFLD,Yes,Yes,No,85,IV,IV,C,NA,Supportive care,Supportive care,NA,NA,NA,1.67,Dead,1
+279,HCC,Pandemic,2020-09-01,56,Male,3,Symptomatic,NA,Yes,Missed,NA,21.2,NA,ARLD,Yes,Yes,No,NA,III,III,D,NA,Supportive care,Supportive care,NA,NA,NA,0,Dead,1
+280,HCC,Pandemic,2020-09-01,78,Male,3,Incidental,Secondary care - acute,No,NA,NA,NA,NA,NAFLD,Yes,No,No,75,IV,IV,D,NA,Supportive care,Supportive care,NA,NA,NA,2,Dead,1
+281,HCC,Pandemic,2020-10-01,63,Male,0,Surveillance,NA,Yes,Inconsistent,AFP alone,11.53333333,Yes,ARLD,Yes,Yes,No,28,II,II,A,NA,OLTx,Curative,2.83,1.87,1.5,11.63,Alive,0
+282,HCC,Pandemic,2020-10-01,69,Female,0,Surveillance,NA,Yes,Inconsistent,AFP alone,8.266666667,Yes,NAFLD,Yes,Yes,No,60,III,III,C,NA,Supportive care,Supportive care,NA,NA,NA,6.63,Dead,1
+283,HCC,Pandemic,2020-10-01,80,Female,1,Symptomatic,NA,Yes,Missed,NA,NA,NA,PBC/AIH,Yes,No,No,42,III,III,C,NA,Medical,Non-curative,NA,NA,NA,8.9,Dead,1
+284,HCC,Pandemic,2020-10-01,69,Male,0,Symptomatic,NA,No,NA,NA,NA,NA,ARLD,Yes,No,No,20,II,II,A,NA,Ablation,Curative,NA,3.5,NA,10.97,Alive,0
+285,HCC,Pandemic,2020-11-01,69,Male,2,Symptomatic,NA,No,NA,NA,NA,NA,No established CLD,No,No,No,210,III,III,C,NA,Medical,Non-curative,NA,NA,NA,7.67,Dead,1
+286,HCC,Pandemic,2020-11-01,70,Male,1,Symptomatic,Secondary care - acute,Yes,Missed,NA,14.93333333,NA,NAFLD,Yes,Yes,No,36,II,II,C,NA,Medical,Non-curative,NA,NA,NA,10.73,Alive,0
+287,HCC,Pandemic,2020-11-01,63,Male,0,Surveillance,NA,Yes,Inconsistent,AFP alone,9.466666667,Yes,ARLD,Yes,Yes,Yes,58,III,III,D,NA,Supportive care,Supportive care,NA,NA,NA,4.97,Dead,1
+288,HCC,Pandemic,2020-11-01,61,Male,0,Symptomatic,NA,No,NA,NA,NA,NA,No established CLD,No,No,No,32,I,I,A,NA,Resection,Curative,0.1,1.13,1.17,10.73,Alive,0
+289,HCC,Pandemic,2020-11-01,75,Male,1,Symptomatic,NA,No,NA,NA,NA,NA,NAFLD,Yes,No,No,65,III,III,C,NA,Medical,Non-curative,NA,NA,NA,10.5,Alive,0
+290,HCC,Pandemic,2020-11-01,76,Male,0,Incidental,Secondary care - acute,No,NA,NA,NA,NA,NAFLD,Yes,No,No,140,III,III,B,NA,Medical,Non-curative,NA,NA,NA,6.3,Dead,1
+291,HCC,Pandemic,2020-11-01,27,Male,0,Incidental,Secondary care - routine,No,NA,NA,NA,NA,Other,Yes,No,No,14,II,II,A,NA,TACE,Non-curative,NA,NA,NA,10.5,Alive,0
+292,HCC,Pandemic,2020-11-01,41,Male,3,Symptomatic,NA,No,NA,NA,NA,NA,Other,No,No,No,170,IV,IV,D,NA,Supportive care,Supportive care,NA,NA,NA,1.17,Dead,1
+293,HCC,Pandemic,2020-11-01,78,Male,2,Incidental,Secondary care - acute,No,NA,NA,NA,NA,ARLD,Yes,No,No,48,I,I,C,NA,Supportive care,Supportive care,NA,NA,NA,10.5,Alive,0
+294,HCC,Pandemic,2020-11-01,72,Male,0,Symptomatic,NA,No,NA,NA,NA,NA,HH,No,No,No,77,III,III,B,NA,SIRT,Non-curative,2.73,2.77,1.63,10.5,Alive,0
+295,HCC,Pandemic,2020-11-01,68,Male,1,Symptomatic,NA,No,NA,NA,NA,NA,NAFLD,No,No,No,150,III,III,C,NA,Supportive care,Supportive care,1.73,1.67,1.1,1.5,Dead,1
+296,HCC,Pandemic,2020-11-01,61,Male,1,Surveillance,NA,Yes,NA,AFP alone,NA,Yes,HCV,Yes,Yes,No,47,II,II,C,NA,TACE,Non-curative,2.03,1.4,0.8,5.6,Dead,1
+297,HCC,Pandemic,2020-11-01,75,Female,2,Symptomatic,NA,No,NA,NA,NA,NA,NAFLD,No,No,No,62,I,I,C,NA,Supportive care,Supportive care,NA,NA,NA,10.27,Alive,0
+298,HCC,Pandemic,2020-11-01,76,Male,3,Symptomatic,NA,Yes,Consistent,NA,2.8,NA,ARLD,Yes,Yes,No,36,III,III,D,NA,Supportive care,Supportive care,NA,NA,NA,8.33,Dead,1
+299,HCC,Pandemic,2020-11-01,52,Male,0,Symptomatic,NA,No,NA,NA,NA,NA,No established CLD,No,No,No,220,I,I,B,NA,SIRT,Non-curative,2.53,2.07,1.4,10.03,Alive,0
+300,HCC,Pandemic,2020-12-01,82,Male,1,Symptomatic,NA,No,NA,NA,NA,NA,No established CLD,No,No,Yes,130,III,III,C,NA,Supportive care,Supportive care,NA,NA,NA,2.7,Dead,1
+301,HCC,Pandemic,2020-12-01,66,Male,1,Surveillance,NA,Yes,Consistent,AFP alone,4.166666667,Yes,ARLD,Yes,Yes,No,30,III,III,C,NA,Supportive care,Supportive care,NA,NA,NA,9.83,Alive,0
+302,HCC,Pandemic,2020-12-01,84,Male,2,Symptomatic,NA,No,NA,NA,NA,NA,NAFLD,Yes,No,No,220,IV,IV,C,NA,Supportive care,Supportive care,NA,NA,NA,1.8,Dead,1
+303,HCC,Pandemic,2020-12-01,74,Male,1,Incidental,Secondary care - acute,No,NA,NA,NA,NA,NAFLD,No,No,No,80,I,I,C,NA,SIRT,Non-curative,NA,NA,NA,9.6,Alive,0
+304,HCC,Pandemic,2020-12-01,80,Male,0,Surveillance,NA,Yes,Consistent,US,6.3,Yes,ARLD,Yes,Yes,No,17,I,I,A,NA,Ablation,Curative,1.23,1.23,NA,9.6,Alive,0
+305,HCC,Pandemic,2020-12-01,60,Male,2,Symptomatic,NA,No,NA,NA,NA,NA,HH,Yes,No,No,150,III,III,C,NA,Supportive care,Supportive care,NA,NA,NA,0.57,Dead,1
+306,HCC,Pandemic,2020-12-01,86,Male,1,Incidental,Secondary care - acute,No,NA,NA,NA,NA,NAFLD,Yes,No,No,100,III,III,C,NA,Supportive care,Supportive care,NA,NA,NA,4.53,Dead,1
+307,HCC,Pandemic,2020-12-01,61,Male,0,Surveillance,NA,Yes,Inconsistent,US,9.766666667,Yes,ARLD,Yes,Yes,No,14,I,I,A,NA,Ablation,Curative,NA,1,NA,9.37,Alive,0
+308,HCC,Pandemic,2020-12-01,72,Male,1,Incidental,Secondary care - routine,No,NA,NA,NA,NA,NAFLD,Yes,No,Yes,39,II,II,C,NA,TACE,Non-curative,NA,0.77,NA,9.37,Alive,0
+309,HCC,Pandemic,2020-12-01,85,Female,2,Symptomatic,Secondary care - acute,No,Consistent,NA,NA,NA,NAFLD,Yes,Yes,No,60,IV,IV,C,NA,Supportive care,Supportive care,NA,NA,NA,2.77,Dead,1
+310,HCC,Pandemic,2020-12-01,54,Male,1,Symptomatic,NA,No,NA,NA,NA,NA,ARLD,Yes,Yes,No,75,III,III,C,NA,Supportive care,Supportive care,NA,NA,NA,9.13,Alive,0
+311,HCC,Pandemic,2020-12-01,84,Female,4,Symptomatic,NA,No,NA,NA,NA,NA,NAFLD,No,No,No,45,IV,IV,D,NA,Supportive care,Supportive care,NA,NA,NA,9.13,Alive,0
+312,ICC,Pre-pandemic,2020-01-01,56,Male,0,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,30,IV,NA,NA,IV,Medical,Non-curative,1.63,1.53,1.53,32.77,Alive,0
+313,ICC,Pre-pandemic,2020-01-01,64,Female,2,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,35,I,NA,NA,I,Supportive care,Supportive care,NA,NA,NA,2.33,Dead,1
+314,ICC,Pre-pandemic,2020-01-01,54,Male,2,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,NA,IV,NA,NA,IV,Supportive care,Supportive care,NA,NA,NA,0.3,Dead,1
+315,ICC,Pre-pandemic,2020-01-01,75,Male,1,Surveillance,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,NA,II,NA,NA,II,Supportive care,Supportive care,NA,NA,NA,5.53,Dead,1
+316,ICC,Pre-pandemic,2020-01-01,73,Female,1,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,14,IV,NA,NA,IV,Supportive care,Supportive care,NA,NA,NA,10.17,Dead,1
+317,ICC,Pre-pandemic,2020-01-01,73,Male,1,Incidental,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,NA,IV,NA,NA,IV,Resection,Curative,3.23,2.67,2.67,18.07,Dead,1
+318,ICC,Pre-pandemic,2020-02-01,83,Male,2,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,NA,IV,NA,NA,IV,Supportive care,Supportive care,NA,NA,NA,0.27,Dead,1
+319,ICC,Pre-pandemic,2020-02-01,74,Male,1,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,NA,II,NA,NA,II,Supportive care,Supportive care,NA,NA,NA,5.97,Dead,1
+320,ICC,Pre-pandemic,2020-02-01,52,Male,0,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,21,III,NA,NA,III,Resection,Curative,1.3,0.27,0.27,31.67,Alive,0
+321,ICC,Pre-pandemic,2020-02-01,80,Female,3,Incidental,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,40,II,NA,NA,II,Supportive care,Supportive care,NA,NA,NA,0.1,Dead,1
+322,ICC,Pre-pandemic,2020-02-01,65,Female,0,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,50,IV,NA,NA,IV,Resection,Curative,1.73,1.37,1.37,30.63,Dead,1
+323,ICC,Pre-pandemic,2020-02-01,67,Male,0,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,11,III,NA,NA,III,Supportive care,Supportive care,NA,NA,NA,31.67,Alive,0
+324,ICC,Pre-pandemic,2020-02-01,68,Male,0,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,14,II,NA,NA,II,Resection,Curative,1.5,1.5,1.5,31.4,Alive,0
+325,ICC,Pre-pandemic,2019-03-01,88,Female,2,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,NA,II,NA,NA,II,Supportive care,Supportive care,NA,NA,NA,0.37,Dead,1
+326,ICC,Pre-pandemic,2019-03-01,65,Female,1,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,NA,IV,NA,NA,IV,Supportive care,Supportive care,NA,NA,NA,13.33,Dead,1
+327,ICC,Pre-pandemic,2019-03-01,73,Female,2,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,NA,IV,NA,NA,IV,Supportive care,Supportive care,NA,NA,NA,0.8,Dead,1
+328,ICC,Pre-pandemic,2019-03-01,66,Male,1,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,NA,II,NA,NA,II,Resection,Curative,1.83,1.1,1.1,9.07,Dead,1
+329,ICC,Pre-pandemic,2019-03-01,73,Female,1,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,114,IV,NA,NA,IV,Supportive care,Supportive care,NA,NA,NA,17,Dead,1
+330,ICC,Pre-pandemic,2019-04-01,70,Male,0,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,190,IV,NA,NA,IV,Medical,Non-curative,1.57,0.57,0.57,29.83,Alive,0
+331,ICC,Pre-pandemic,2019-04-01,56,Female,2,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,135,IV,NA,NA,IV,Medical,Non-curative,NA,NA,NA,3.27,Dead,1
+332,ICC,Pre-pandemic,2019-04-01,74,Male,2,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,68,III,NA,NA,III,Supportive care,Supportive care,NA,NA,NA,18.6,Dead,1
+333,ICC,Pre-pandemic,2019-04-01,82,Male,3,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,64,IV,NA,NA,IV,Supportive care,Supportive care,0.47,0.1,0.1,0.57,Dead,1
+334,ICC,Pre-pandemic,2019-04-01,72,Male,1,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,NA,II,NA,NA,II,Resection,Curative,0.67,0.4,0.4,29.83,Alive,0
+335,ICC,Pre-pandemic,2019-04-01,71,Male,3,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,55,IV,NA,NA,IV,Supportive care,Supportive care,NA,NA,NA,2.87,Dead,1
+336,ICC,Pre-pandemic,2019-04-01,87,Female,3,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,NA,IV,NA,NA,IV,Supportive care,Supportive care,NA,NA,NA,0.47,Dead,1
+337,ICC,Pre-pandemic,2019-04-01,61,Female,1,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,NA,IV,NA,NA,IV,Medical,Non-curative,1,0.37,0.37,12.77,Dead,1
+338,ICC,Pre-pandemic,2019-04-01,74,Male,3,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,83,III,NA,NA,III,Supportive care,Supportive care,NA,NA,NA,3.83,Dead,1
+339,ICC,Pre-pandemic,2019-05-01,53,Male,0,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,28,II,NA,NA,II,Resection,Curative,1.03,1.4,1.4,29.13,Alive,0
+340,ICC,Pre-pandemic,2019-05-01,70,Male,0,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,NA,IV,NA,NA,IV,Supportive care,Supportive care,2.4,1.53,1.53,11.43,Dead,1
+341,ICC,Pre-pandemic,2019-06-01,53,Male,1,Surveillance,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,35,III,NA,NA,III,SIRT,Non-curative,NA,NA,NA,16.5,Dead,1
+342,ICC,Pre-pandemic,2019-06-01,81,Male,2,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,76,III,NA,NA,III,Supportive care,Supportive care,NA,NA,NA,5.33,Dead,1
+343,ICC,Pre-pandemic,2019-06-01,47,Female,1,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,49,IV,NA,NA,IV,Medical,Non-curative,3.47,1.63,1.63,19.3,Dead,1
+344,ICC,Pre-pandemic,2019-07-01,70,Male,0,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,15,IV,NA,NA,IV,Medical,Non-curative,2.63,1.87,1.87,27.1,Alive,0
+345,ICC,Pre-pandemic,2019-07-01,78,Male,1,Incidental,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,25,II,NA,NA,II,Supportive care,Supportive care,NA,NA,NA,27.1,Alive,0
+346,ICC,Pre-pandemic,2019-07-01,72,Male,0,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,NA,IV,NA,NA,IV,Resection,Curative,7,5.43,5.43,19.53,Dead,1
+347,ICC,Pre-pandemic,2019-07-01,28,Male,0,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,NA,IV,NA,NA,IV,Resection,Curative,2.03,2.43,2.43,8.13,Dead,1
+348,ICC,Pre-pandemic,2019-07-01,70,Male,0,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,110,IV,NA,NA,IV,Supportive care,Supportive care,NA,NA,NA,0.27,Dead,1
+349,ICC,Pre-pandemic,2019-07-01,57,Male,1,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,17,IV,NA,NA,IV,Supportive care,Supportive care,NA,NA,NA,5.27,Dead,1
+350,ICC,Pre-pandemic,2019-08-01,70,Female,1,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,45,IV,NA,NA,IV,Medical,Non-curative,NA,NA,NA,4.4,Dead,1
+351,ICC,Pre-pandemic,2019-08-01,71,Female,2,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,75,III,NA,NA,III,Medical,Non-curative,NA,NA,NA,3.9,Dead,1
+352,ICC,Pre-pandemic,2019-08-01,75,Male,0,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,23,IV,NA,NA,IV,Medical,Non-curative,NA,NA,NA,22.33,Dead,1
+353,ICC,Pre-pandemic,2019-08-01,82,Male,2,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,NA,NA,NA,NA,NA,Supportive care,Supportive care,NA,NA,NA,3.9,Dead,1
+354,ICC,Pre-pandemic,2019-08-01,81,Female,2,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,25,II,NA,NA,II,Supportive care,Supportive care,NA,NA,NA,16.93,Dead,1
+355,ICC,Pre-pandemic,2019-08-01,56,Male,2,Surveillance,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,50,III,NA,NA,III,Supportive care,Supportive care,NA,NA,NA,14.07,Dead,1
+356,ICC,Pre-pandemic,2019-08-01,56,Female,1,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,90,IV,NA,NA,IV,Medical,Non-curative,2.07,1.77,1.77,4.37,Dead,1
+357,ICC,Pre-pandemic,2019-08-01,74,Male,1,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,NA,IV,NA,NA,IV,Supportive care,Supportive care,NA,NA,NA,1.77,Dead,1
+358,ICC,Pre-pandemic,2019-08-01,78,Female,2,Incidental,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,25,IV,NA,NA,IV,Supportive care,Supportive care,NA,NA,NA,5.97,Dead,1
+359,ICC,Pre-pandemic,2019-08-01,82,Female,2,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,NA,IV,NA,NA,IV,Supportive care,Supportive care,NA,NA,NA,1.07,Dead,1
+360,ICC,Pre-pandemic,2019-08-01,67,Female,3,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,67,II,NA,NA,II,Supportive care,Supportive care,NA,NA,NA,13.03,Dead,1
+361,ICC,Pre-pandemic,2019-09-01,69,Female,1,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,NA,II,NA,NA,II,Resection,Curative,3.97,3.1,3.1,25.03,Alive,0
+362,ICC,Pre-pandemic,2019-09-01,73,Male,1,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,NA,IV,NA,NA,IV,Supportive care,Supportive care,NA,NA,NA,1.87,Dead,1
+363,ICC,Pre-pandemic,2019-09-01,75,Male,1,Incidental,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,65,III,NA,NA,III,Supportive care,Supportive care,NA,NA,NA,5.7,Dead,1
+364,ICC,Pre-pandemic,2019-09-01,63,Female,1,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,57,IV,NA,NA,IV,Medical,Non-curative,4.8,2.27,2.27,0.43,Dead,1
+365,ICC,Pre-pandemic,2019-09-01,62,Female,2,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,97,IV,NA,NA,IV,Medical,Non-curative,3.33,2.87,2.87,24.57,Alive,0
+366,ICC,Pre-pandemic,2019-09-01,80,Male,2,Surveillance,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,29,II,NA,NA,II,Supportive care,Supportive care,NA,NA,NA,6.77,Dead,1
+367,ICC,Pre-pandemic,2019-09-01,71,Male,2,Incidental,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,52,III,NA,NA,III,Supportive care,Supportive care,NA,NA,NA,6.1,Dead,1
+368,ICC,Pre-pandemic,2019-10-01,74,Male,1,Incidental,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,NA,IV,NA,NA,IV,Supportive care,Supportive care,NA,NA,NA,4.73,Dead,1
+369,ICC,Pre-pandemic,2019-10-01,83,Female,2,Incidental,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,52,III,NA,NA,III,Supportive care,Supportive care,NA,NA,NA,0.87,Dead,1
+370,ICC,Pre-pandemic,2019-10-01,85,Female,1,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,NA,IV,NA,NA,IV,Supportive care,Supportive care,NA,NA,NA,6.17,Dead,1
+371,ICC,Pre-pandemic,2019-10-01,69,Female,0,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,NA,II,NA,NA,II,Resection,Curative,3,1.7,1.7,23.63,Alive,0
+372,ICC,Pre-pandemic,2019-10-01,86,Female,3,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,16,III,NA,NA,III,Supportive care,Supportive care,NA,NA,NA,0.67,Dead,1
+373,ICC,Pre-pandemic,2019-11-01,74,Male,1,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,100,IV,NA,NA,IV,Medical,Non-curative,1.23,NA,NA,23.2,Alive,0
+374,ICC,Pre-pandemic,2019-05-01,69,Male,0,Incidental,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,53,I,NA,NA,I,Medical,Non-curative,0,NA,NA,29.23,Alive,0
+375,ICC,Pre-pandemic,2019-05-01,84,Male,1,Surveillance,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,30,II,NA,NA,II,SIRT,Non-curative,0,NA,NA,29.23,Alive,0
+376,ICC,Pre-pandemic,2019-11-01,73,Male,1,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,100,IV,NA,NA,IV,Medical,Non-curative,1.03,-0.87,-0.87,23.2,Alive,0
+377,ICC,Pre-pandemic,2019-11-01,61,Male,0,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,104,IV,NA,NA,IV,Medical,Non-curative,2.23,1.87,1.87,21.23,Dead,1
+378,ICC,Pre-pandemic,2019-11-01,71,Male,1,Incidental,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,NA,II,NA,NA,II,Resection,Curative,1.57,0.17,0.17,22.97,Alive,0
+379,ICC,Pre-pandemic,2019-11-01,77,Female,1,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,61,IV,NA,NA,IV,Medical,Non-curative,5.3,2.5,2.5,9.87,Dead,1
+380,ICC,Pre-pandemic,2019-11-01,72,Male,1,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,190,IV,NA,NA,IV,Medical,Non-curative,1.57,NA,NA,22.5,Alive,0
+381,ICC,Pre-pandemic,2019-11-01,55,Male,1,Surveillance,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,43,II,NA,NA,II,OLTx,Curative,0,NA,NA,5.33,Dead,1
+382,ICC,Pre-pandemic,2019-11-01,47,Male,0,Incidental,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,15,IV,NA,NA,IV,Resection,Curative,5.17,3.67,3.67,22.27,Alive,0
+383,ICC,Pre-pandemic,2019-12-01,39,Male,0,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,32,II,NA,NA,II,SIRT,Non-curative,2.27,1.17,1.17,15.17,Dead,1
+384,ICC,Pre-pandemic,2019-12-01,68,Male,1,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,15,IV,NA,NA,IV,Resection,Curative,3.8,2.73,2.73,20.9,Dead,1
+385,ICC,Pre-pandemic,2019-12-01,44,Female,0,Incidental,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,86,IV,NA,NA,IV,Medical,Non-curative,3.37,NA,NA,20.63,Dead,1
+386,ICC,Pre-pandemic,2019-12-01,66,Female,1,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,94,IV,NA,NA,IV,Medical,Non-curative,2.63,2.33,2.33,21.37,Alive,0
+387,ICC,Pandemic,2021-01-01,73,Female,1,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,100,III,NA,NA,III,Supportive care,Supportive care,NA,NA,NA,6.5,Dead,1
+388,ICC,Pandemic,2021-01-01,59,Male,1,Incidental,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,75,IV,NA,NA,IV,NA,NA,NA,NA,NA,1.9,Dead,1
+389,ICC,Pandemic,2021-01-01,39,Female,0,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,13,IV,NA,NA,IV,Resection,Curative,0.8,0.73,0.73,21.1,Alive,0
+390,ICC,Pandemic,2021-01-01,64,Male,0,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,20,IV,NA,NA,IV,Medical,Non-curative,12.6,11.9,11.9,20.63,Alive,0
+391,ICC,Pandemic,2021-01-01,60,Male,1,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,25,IV,NA,NA,IV,Supportive care,Supportive care,NA,NA,NA,0.6,Dead,1
+392,ICC,Pandemic,2021-01-01,71,Male,1,Surveillance,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,10,III,NA,NA,III,Supportive care,Supportive care,NA,NA,NA,20.3,Dead,1
+393,ICC,Pandemic,2021-02-01,81,Male,1,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,NA,IV,NA,NA,IV,Supportive care,Supportive care,NA,NA,NA,5.1,Dead,1
+394,ICC,Pandemic,2021-02-01,71,Female,1,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,57,IV,NA,NA,IV,Supportive care,Supportive care,NA,NA,NA,0.43,Dead,1
+395,ICC,Pandemic,2021-02-01,52,Male,1,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,40,IV,NA,NA,IV,Resection,Curative,2,1.4,1.4,19.73,Alive,0
+396,ICC,Pandemic,2021-02-01,76,Female,1,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,34,IV,NA,NA,IV,Supportive care,Supportive care,NA,NA,NA,0.8,Dead,1
+397,ICC,Pandemic,2021-02-01,71,Male,1,Incidental,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,75,IV,NA,NA,IV,Medical,Non-curative,4.53,1.27,1.27,6.93,Dead,1
+398,ICC,Pandemic,2021-02-01,70,Male,1,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,54,IV,NA,NA,IV,Medical,Non-curative,3.83,2.67,2.67,2.77,Dead,1
+399,ICC,Pandemic,2021-02-01,55,Female,0,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,NA,IV,NA,NA,IV,Supportive care,Supportive care,NA,NA,NA,4.27,Dead,1
+400,ICC,Pandemic,2020-03-01,73,Male,1,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,40,IV,NA,NA,IV,Supportive care,Supportive care,NA,NA,NA,0.37,Dead,1
+401,ICC,Pandemic,2020-03-01,73,Male,2,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,50,IV,NA,NA,IV,Supportive care,Supportive care,NA,NA,NA,0.6,Dead,1
+402,ICC,Pandemic,2020-04-01,80,Male,3,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,NA,IV,NA,NA,IV,Supportive care,Supportive care,NA,NA,NA,0,Dead,1
+403,ICC,Pandemic,2020-04-01,70,Male,0,Incidental,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,70,IV,NA,NA,IV,Supportive care,Supportive care,NA,NA,NA,17.9,Alive,0
+404,ICC,Pandemic,2020-04-01,65,Female,2,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,NA,IV,NA,NA,IV,Supportive care,Supportive care,NA,NA,NA,2.13,Dead,1
+405,ICC,Pandemic,2020-04-01,69,Male,1,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,NA,IV,NA,NA,IV,Supportive care,Supportive care,NA,NA,NA,14.33,Dead,1
+406,ICC,Pandemic,2020-04-01,70,Male,1,Incidental,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,26,IV,NA,NA,IV,Supportive care,Supportive care,NA,NA,NA,3.27,Dead,1
+407,ICC,Pandemic,2020-04-01,55,Male,0,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,25,IV,NA,NA,IV,Medical,Non-curative,1.83,1.4,1.4,17.43,Alive,0
+408,ICC,Pandemic,2020-05-01,74,Female,1,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,19,IV,NA,NA,IV,Supportive care,Supportive care,NA,NA,NA,17.2,Alive,0
+409,ICC,Pandemic,2020-05-01,75,Female,2,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,80,IV,NA,NA,IV,Supportive care,Supportive care,NA,NA,NA,4,Dead,1
+410,ICC,Pandemic,2020-05-01,83,Male,2,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,70,IV,NA,NA,IV,Supportive care,Supportive care,NA,NA,NA,0.73,Dead,1
+411,ICC,Pandemic,2020-05-01,83,Female,2,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,NA,IV,NA,NA,IV,Supportive care,Supportive care,NA,NA,NA,4.73,Dead,1
+412,ICC,Pandemic,2020-05-01,69,Male,0,Incidental,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,40,III,NA,NA,III,Resection,Curative,5.47,4.13,4.13,16.97,Alive,0
+413,ICC,Pandemic,2020-05-01,82,Male,2,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,31,IV,NA,NA,IV,Supportive care,Supportive care,NA,NA,NA,4.9,Dead,1
+414,ICC,Pandemic,2020-05-01,63,Male,0,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,23,IV,NA,NA,IV,Medical,Non-curative,NA,NA,NA,16.73,Alive,0
+415,ICC,Pandemic,2020-05-01,39,Male,0,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,25,IV,NA,NA,IV,Supportive care,Supportive care,NA,NA,NA,4.8,Dead,1
+416,ICC,Pandemic,2020-06-01,79,Male,2,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,40,III,NA,NA,III,Supportive care,Supportive care,NA,NA,NA,9.57,Dead,1
+417,ICC,Pandemic,2020-06-01,70,Male,3,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,55,IV,NA,NA,IV,Supportive care,Supportive care,NA,NA,NA,1.23,Dead,1
+418,ICC,Pandemic,2020-06-01,62,Male,1,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,34,IV,NA,NA,IV,Medical,Non-curative,NA,NA,NA,15.37,Alive,0
+419,ICC,Pandemic,2020-07-01,61,Female,1,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,52,IV,NA,NA,IV,Resection,Curative,1.87,0.9,0.9,4.97,Dead,1
+420,ICC,Pandemic,2020-07-01,69,Male,1,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,NA,IV,NA,NA,IV,Resection,Curative,1.3,0.87,0.87,10.77,Dead,1
+421,ICC,Pandemic,2020-07-01,73,Male,1,Incidental,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,NA,IV,NA,NA,IV,Resection,Curative,3.23,NA,NA,0.67,Dead,1
+422,ICC,Pandemic,2020-07-01,73,Female,3,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,42,IV,NA,NA,IV,Supportive care,Supportive care,NA,NA,NA,1.97,Dead,1
+423,ICC,Pandemic,2020-07-01,68,Male,1,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,27,IV,NA,NA,IV,Medical,Non-curative,3.3,NA,NA,14.47,Alive,0
+424,ICC,Pandemic,2020-08-01,74,Male,1,Incidental,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,32,II,NA,NA,II,Resection,Curative,4.07,2.67,2.67,14.23,Alive,0
+425,ICC,Pandemic,2020-08-01,85,Female,4,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,NA,IV,NA,NA,IV,Supportive care,Supportive care,NA,NA,NA,0.83,Dead,1
+426,ICC,Pandemic,2020-08-01,52,Male,0,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,93,IV,NA,NA,IV,Supportive care,Supportive care,NA,NA,NA,3.97,Dead,1
+427,ICC,Pandemic,2020-08-01,74,Male,1,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,150,IV,NA,NA,IV,Supportive care,Supportive care,NA,NA,NA,1.6,Dead,1
+428,ICC,Pandemic,2020-08-01,59,Male,3,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,80,IV,NA,NA,IV,Supportive care,Supportive care,NA,NA,NA,0.9,Dead,1
+429,ICC,Pandemic,2020-09-01,81,Male,1,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,NA,IV,NA,NA,IV,Medical,Non-curative,NA,NA,NA,0.77,Dead,1
+430,ICC,Pandemic,2020-09-01,76,Male,1,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,NA,IV,NA,NA,IV,TACE,Non-curative,NA,NA,NA,1,Dead,1
+431,ICC,Pandemic,2020-10-01,72,Female,2,Incidental,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,90,IV,NA,NA,IV,Supportive care,Supportive care,NA,NA,NA,1.87,Dead,1
+432,ICC,Pandemic,2020-10-01,51,Male,1,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,NA,IV,NA,NA,IV,Medical,Non-curative,NA,0.3,0.3,12.17,Alive,0
+433,ICC,Pandemic,2020-10-01,65,Female,0,Incidental,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,81,IV,NA,NA,IV,Medical,Non-curative,3,1.83,1.83,11.27,Alive,0
+434,ICC,Pandemic,2020-10-01,70,Male,0,Incidental,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,18,III,NA,NA,III,Resection,Curative,1.93,1.37,1.37,11.27,Alive,0
+435,ICC,Pandemic,2020-11-01,81,Male,2,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,NA,IV,NA,NA,IV,Supportive care,Supportive care,NA,NA,NA,2.37,Dead,1
+436,ICC,Pandemic,2020-11-01,82,Male,2,Incidental,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,NA,IV,NA,NA,IV,Supportive care,Supportive care,NA,NA,NA,3.27,Dead,1
+437,ICC,Pandemic,2020-11-01,72,Female,1,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,74,IV,NA,NA,IV,Medical,Non-curative,NA,NA,NA,10.33,Alive,0
+438,ICC,Pandemic,2020-12-01,84,Female,1,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,27,IV,NA,NA,IV,Medical,Non-curative,NA,NA,NA,3.97,Dead,1
+439,ICC,Pandemic,2020-12-01,63,Male,1,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,80,II,NA,NA,II,Resection,Curative,1.13,0.67,0.67,10.13,Alive,0
+440,ICC,Pandemic,2020-12-01,73,Male,1,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,NA,IV,NA,NA,IV,Resection,Curative,1.37,0.7,0.7,10.13,Alive,0
+441,ICC,Pandemic,2020-12-01,82,Female,3,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,18,III,NA,NA,III,Supportive care,Supportive care,NA,NA,NA,0.6,Dead,1
+442,ICC,Pandemic,2020-12-01,73,Male,3,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,NA,IV,NA,NA,IV,Supportive care,Supportive care,NA,NA,NA,8.47,Dead,1
+443,ICC,Pandemic,2020-12-01,67,Male,3,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,110,IV,NA,NA,IV,TACE,Non-curative,NA,NA,NA,0.53,Dead,1
+444,ICC,Pandemic,2020-12-01,87,Female,1,Incidental,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,40,III,NA,NA,III,Supportive care,Supportive care,NA,NA,NA,7.9,Dead,1
+445,ICC,Pandemic,2020-12-01,73,Male,0,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,20,IV,NA,NA,IV,NA,NA,NA,NA,NA,5.03,Dead,1
+446,ICC,Pandemic,2020-12-01,72,Female,1,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,NA,III,NA,NA,III,Supportive care,Supportive care,NA,NA,NA,1.2,Dead,1
+447,ICC,Pandemic,2020-12-01,63,Male,0,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,75,IV,NA,NA,IV,Medical,Non-curative,2.93,1.63,1.63,9.67,Alive,0
+448,ICC,Pandemic,2020-12-01,79,Female,1,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,63,IV,NA,NA,IV,Supportive care,Supportive care,NA,NA,NA,1.47,Dead,1
+449,ICC,Pandemic,2020-12-01,84,Female,2,Symptomatic,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,65,IV,NA,NA,IV,Medical,Non-curative,NA,NA,NA,1.67,Dead,1
+450,ICC,Pandemic,2020-12-01,80,Female,2,Incidental,NA,NA,NA,NA,NA,NA,NA,NA,Yes,NA,45,II,NA,NA,II,Supportive care,Supportive care,0,NA,NA,7.27,Dead,1
