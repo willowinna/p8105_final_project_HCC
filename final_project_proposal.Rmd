@@ -1,7 +1,6 @@
 ---
 output:
-  github_document: default
-  pdf_document: default
+  github_document
 geometry: margin=1in
 ---
 
