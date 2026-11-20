@@ -388,14 +388,724 @@ div.tocify {
 </div>
 
 
-<pre class="r"><code>liver_clean = read_csv(&quot;data/liver_clean.csv&quot;)</code></pre>
+<div id="data" class="section level2">
+<h2>Data</h2>
+<p>We use the cleaned data from the <a href="data.html">Data</a> page.
+Survival time is measured in months from the MDT discussion, and
+<code>event = 1</code> means the patient died.</p>
+<p>For modeling, we group ECOG performance status 3 and 4 together (only
+5 patients have PS 4), and we combine TNM stages I and II, since very
+few ICC patients were diagnosed at stage I.</p>
+<pre class="r"><code>liver_df =
+  read_rds(&quot;data/liver_clean.rds&quot;) |&gt;
+  mutate(
+    age_10 = age / 10,
+    ps_group = fct_collapse(
+      factor(ps),
+      &quot;0&quot; = &quot;0&quot;, &quot;1&quot; = &quot;1&quot;, &quot;2&quot; = &quot;2&quot;, &quot;3-4&quot; = c(&quot;3&quot;, &quot;4&quot;)
+    ),
+    stage_group = fct_collapse(
+      tnm_stage,
+      &quot;I-II&quot; = c(&quot;I&quot;, &quot;II&quot;), &quot;III&quot; = &quot;III&quot;, &quot;IV&quot; = &quot;IV&quot;
+    )
+  )</code></pre>
+</div>
+<div id="follow-up" class="section level2">
+<h2>Follow-up</h2>
+<pre class="r"><code>liver_df |&gt;
+  group_by(period, cancer_type) |&gt;
+  summarize(
+    patients = n(),
+    deaths = sum(event),
+    max_follow_up = max(survival_months),
+    .groups = &quot;drop&quot;
+  ) |&gt;
+  knitr::kable(
+    digits = 1,
+    col.names = c(&quot;Period&quot;, &quot;Cancer&quot;, &quot;Patients&quot;, &quot;Deaths&quot;, &quot;Max follow-up (months)&quot;)
+  )</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Period</th>
+<th align="left">Cancer</th>
+<th align="right">Patients</th>
+<th align="right">Deaths</th>
+<th align="right">Max follow-up (months)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Pre-pandemic</td>
+<td align="left">HCC</td>
+<td align="right">190</td>
+<td align="right">109</td>
+<td align="right">32.7</td>
+</tr>
+<tr class="even">
+<td align="left">Pre-pandemic</td>
+<td align="left">ICC</td>
+<td align="right">76</td>
+<td align="right">55</td>
+<td align="right">32.8</td>
+</tr>
+<tr class="odd">
+<td align="left">Pandemic</td>
+<td align="left">HCC</td>
+<td align="right">120</td>
+<td align="right">54</td>
+<td align="right">20.6</td>
+</tr>
+<tr class="even">
+<td align="left">Pandemic</td>
+<td align="left">ICC</td>
+<td align="right">64</td>
+<td align="right">46</td>
+<td align="right">21.1</td>
+</tr>
+</tbody>
+</table>
+<p>The pre-pandemic cohort was referred a year earlier, so it can have
+longer follow-up. Below we use the reverse Kaplan–Meier method to
+estimate median potential follow-up in each period. To make the
+comparison fairer, the <a
+href="#sensitivity-analysis-12-month-follow-up">sensitivity analysis</a>
+restricts both cohorts to the first 12 months.</p>
+<pre class="r"><code>reverse_km = survfit(Surv(survival_months, 1 - event) ~ period, data = liver_df)
+
+as_tibble(summary(reverse_km)$table, rownames = &quot;period&quot;) |&gt;
+  mutate(period = str_remove(period, &quot;^period=&quot;)) |&gt;
+  select(period, median, `0.95LCL`, `0.95UCL`) |&gt;
+  knitr::kable(
+    digits = 1,
+    col.names = c(&quot;Period&quot;, &quot;Median follow-up (months)&quot;, &quot;Lower 95% CI&quot;, &quot;Upper 95% CI&quot;)
+  )</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Period</th>
+<th align="right">Median follow-up (months)</th>
+<th align="right">Lower 95% CI</th>
+<th align="right">Upper 95% CI</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Pre-pandemic</td>
+<td align="right">26.6</td>
+<td align="right">25.4</td>
+<td align="right">28.1</td>
+</tr>
+<tr class="even">
+<td align="left">Pandemic</td>
+<td align="right">14.6</td>
+<td align="right">13.7</td>
+<td align="right">15.8</td>
+</tr>
+</tbody>
+</table>
+</div>
 <div id="kaplanmeier-curves" class="section level2">
 <h2>Kaplan–Meier Curves</h2>
-<p><em>TODO: survival curves by period, log-rank test.</em></p>
+<pre class="r"><code># turn a survfit object into a tidy data frame that starts at time 0
+km_tidy = function(fit) {
+  tidy(fit) |&gt;
+    mutate(strata = fct_inorder(str_remove(strata, &quot;^[^=]+=&quot;))) |&gt;
+    group_by(strata) |&gt;
+    group_modify(\(df, key) {
+      add_row(df, time = 0, estimate = 1, conf.low = 1, conf.high = 1, n.censor = 0, .before = 1)
+    }) |&gt;
+    ungroup()
+}
+
+km_plot = function(km_df) {
+  km_df |&gt;
+    ggplot(aes(x = time, y = estimate, color = strata)) +
+    geom_step(linewidth = 0.8) +
+    geom_step(aes(y = conf.low), linetype = &quot;dashed&quot;, alpha = 0.4) +
+    geom_step(aes(y = conf.high), linetype = &quot;dashed&quot;, alpha = 0.4) +
+    geom_point(data = filter(km_df, n.censor &gt; 0), shape = 3, size = 1.5) +
+    scale_y_continuous(limits = c(0, 1), labels = scales::percent) +
+    labs(
+      x = &quot;Months from MDT discussion&quot;,
+      y = &quot;Survival probability&quot;,
+      color = &quot;Period&quot;
+    )
+}</code></pre>
+<div id="all-patients" class="section level3">
+<h3>All patients</h3>
+<pre class="r"><code>km_fit = survfit(Surv(survival_months, event) ~ period, data = liver_df)
+
+km_tidy(km_fit) |&gt;
+  km_plot() +
+  labs(title = &quot;Overall survival by period&quot;)</code></pre>
+<p><img src="survival_files/figure-html/km-overall-1.png" alt="" width="90%" /></p>
+<pre class="r"><code>logrank = survdiff(Surv(survival_months, event) ~ period, data = liver_df)
+logrank_p = pchisq(logrank$chisq, df = length(logrank$n) - 1, lower.tail = FALSE)</code></pre>
+<p>Log-rank test comparing the two periods: p = 0.147.</p>
+<p>Median and 1-year survival:</p>
+<pre class="r"><code>median_tbl =
+  as_tibble(summary(km_fit)$table, rownames = &quot;period&quot;) |&gt;
+  mutate(period = str_remove(period, &quot;^period=&quot;)) |&gt;
+  select(period, median, `0.95LCL`, `0.95UCL`)
+
+km_12 = summary(km_fit, times = 12)
+
+one_year_tbl =
+  tibble(
+    period = str_remove(km_12$strata, &quot;^period=&quot;),
+    surv_12 = km_12$surv,
+    surv_12_low = km_12$lower,
+    surv_12_high = km_12$upper
+  )
+
+left_join(median_tbl, one_year_tbl, by = &quot;period&quot;) |&gt;
+  knitr::kable(
+    digits = 2,
+    col.names = c(
+      &quot;Period&quot;, &quot;Median survival (months)&quot;, &quot;Lower 95% CI&quot;, &quot;Upper 95% CI&quot;,
+      &quot;1-year survival&quot;, &quot;Lower 95% CI&quot;, &quot;Upper 95% CI&quot;
+    )
+  )</code></pre>
+<table style="width:99%;">
+<colgroup>
+<col width="12%" />
+<col width="23%" />
+<col width="12%" />
+<col width="12%" />
+<col width="15%" />
+<col width="12%" />
+<col width="12%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Period</th>
+<th align="right">Median survival (months)</th>
+<th align="right">Lower 95% CI</th>
+<th align="right">Upper 95% CI</th>
+<th align="right">1-year survival</th>
+<th align="right">Lower 95% CI</th>
+<th align="right">Upper 95% CI</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Pre-pandemic</td>
+<td align="right">15.60</td>
+<td align="right">11.80</td>
+<td align="right">20.67</td>
+<td align="right">0.56</td>
+<td align="right">0.50</td>
+<td align="right">0.62</td>
+</tr>
+<tr class="even">
+<td align="left">Pandemic</td>
+<td align="right">9.57</td>
+<td align="right">7.27</td>
+<td align="right">NR</td>
+<td align="right">0.48</td>
+<td align="right">0.41</td>
+<td align="right">0.56</td>
+</tr>
+</tbody>
+</table>
+<p>NR = not reached: too few pandemic patients were followed long enough
+for the upper confidence limit of the median to be estimated.</p>
 </div>
-<div id="cox-proportional-hazards-model" class="section level2">
-<h2>Cox Proportional Hazards Model</h2>
-<p><em>TODO: adjusted model and proportional hazards check.</em></p>
+<div id="by-cancer-type" class="section level3">
+<h3>By cancer type</h3>
+<p>HCC and ICC have very different prognoses, so we also compare the two
+periods within each cancer type.</p>
+<pre class="r"><code>km_by_type =
+  liver_df |&gt;
+  nest(data = -cancer_type) |&gt;
+  mutate(
+    fit = map(data, \(df) survfit(Surv(survival_months, event) ~ period, data = df)),
+    logrank = map(data, \(df) survdiff(Surv(survival_months, event) ~ period, data = df)),
+    p_value = map_dbl(logrank, \(x) pchisq(x$chisq, df = 1, lower.tail = FALSE)),
+    km = map(fit, km_tidy)
+  )
+
+km_by_type |&gt;
+  select(cancer_type, km) |&gt;
+  unnest(km) |&gt;
+  km_plot() +
+  facet_wrap(~ cancer_type) +
+  labs(title = &quot;Overall survival by period and cancer type&quot;)</code></pre>
+<p><img src="survival_files/figure-html/km-by-type-1.png" alt="" width="90%" /></p>
+<pre class="r"><code>km_by_type |&gt;
+  select(cancer_type, p_value) |&gt;
+  arrange(cancer_type) |&gt;
+  mutate(p_value = fmt_p(p_value)) |&gt;
+  knitr::kable(col.names = c(&quot;Cancer&quot;, &quot;Log-rank p-value&quot;))</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Cancer</th>
+<th align="left">Log-rank p-value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">HCC</td>
+<td align="left">0.961</td>
+</tr>
+<tr class="even">
+<td align="left">ICC</td>
+<td align="left">0.028</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="cox-proportional-hazards-models" class="section level2">
+<h2>Cox Proportional Hazards Models</h2>
+<p>The main exposure is the pandemic period, with pre-pandemic as the
+reference. The adjusted model controls for age, sex, cancer type, stage
+and performance status. We do <strong>not</strong> adjust for treatment,
+because changes in treatment may be one of the ways the pandemic
+affected survival (a mediator rather than a confounder). Patients with
+missing stage or performance status are excluded from the adjusted
+model.</p>
+<pre class="r"><code>cox_unadj = coxph(Surv(survival_months, event) ~ period, data = liver_df)
+
+cox_adj = coxph(
+  Surv(survival_months, event) ~ period + age_10 + sex + cancer_type + stage_group + ps_group,
+  data = liver_df
+)
+
+tidy_hr = function(model) {
+  tidy(model, exponentiate = TRUE, conf.int = TRUE)
+}
+
+pretty_terms = function(term) {
+  term |&gt;
+    str_replace(&quot;^periodPandemic$&quot;, &quot;Pandemic (vs. pre-pandemic)&quot;) |&gt;
+    str_replace(&quot;^age_10$&quot;, &quot;Age (per 10 years)&quot;) |&gt;
+    str_replace(&quot;^sexFemale$&quot;, &quot;Female (vs. male)&quot;) |&gt;
+    str_replace(&quot;^cancer_typeICC$&quot;, &quot;ICC (vs. HCC)&quot;) |&gt;
+    str_replace(&quot;^stage_group&quot;, &quot;Stage &quot;) |&gt;
+    str_replace(&quot;^ps_group&quot;, &quot;ECOG PS &quot;)
+}
+
+# pandemic hazard ratio as inline text, e.g. &quot;HR 1.05, 95% CI 0.81–1.37&quot;
+hr_text = function(model) {
+  hr = tidy_hr(model) |&gt; filter(term == &quot;periodPandemic&quot;)
+  sprintf(&quot;HR %.2f, 95%% CI %.2f–%.2f&quot;, hr$estimate, hr$conf.low, hr$conf.high)
+}</code></pre>
+<p>Hazard ratio for the pandemic period:</p>
+<pre class="r"><code>bind_rows(
+  Unadjusted = tidy_hr(cox_unadj),
+  Adjusted = tidy_hr(cox_adj),
+  .id = &quot;model&quot;
+) |&gt;
+  filter(term == &quot;periodPandemic&quot;) |&gt;
+  select(model, estimate, conf.low, conf.high, p.value) |&gt;
+  mutate(p.value = fmt_p(p.value)) |&gt;
+  knitr::kable(
+    digits = 3,
+    col.names = c(&quot;Model&quot;, &quot;Hazard ratio&quot;, &quot;Lower 95% CI&quot;, &quot;Upper 95% CI&quot;, &quot;p-value&quot;)
+  )</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Model</th>
+<th align="right">Hazard ratio</th>
+<th align="right">Lower 95% CI</th>
+<th align="right">Upper 95% CI</th>
+<th align="left">p-value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Unadjusted</td>
+<td align="right">1.210</td>
+<td align="right">0.935</td>
+<td align="right">1.566</td>
+<td align="left">0.148</td>
+</tr>
+<tr class="even">
+<td align="left">Adjusted</td>
+<td align="right">1.048</td>
+<td align="right">0.805</td>
+<td align="right">1.365</td>
+<td align="left">0.726</td>
+</tr>
+</tbody>
+</table>
+<p>The adjusted model includes 447 of 450 patients (262 deaths); three
+patients are missing stage or performance status.</p>
+<div id="why-adjustment-changes-the-estimate" class="section level3">
+<h3>Why adjustment changes the estimate</h3>
+<p>The unadjusted hazard ratio moves toward 1 after adjustment. This is
+mainly because the pandemic cohort was diagnosed at a later stage,
+especially for ICC:</p>
+<pre class="r"><code>liver_df |&gt;
+  filter(!is.na(stage_group)) |&gt;
+  count(cancer_type, period, stage_group) |&gt;
+  group_by(cancer_type, period) |&gt;
+  mutate(pct = scales::percent(n / sum(n), accuracy = 1)) |&gt;
+  ungroup() |&gt;
+  mutate(cell = str_c(n, &quot; (&quot;, pct, &quot;)&quot;)) |&gt;
+  select(cancer_type, period, stage_group, cell) |&gt;
+  pivot_wider(names_from = stage_group, values_from = cell) |&gt;
+  knitr::kable(col.names = c(&quot;Cancer&quot;, &quot;Period&quot;, &quot;Stage I-II&quot;, &quot;Stage III&quot;, &quot;Stage IV&quot;))</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Cancer</th>
+<th align="left">Period</th>
+<th align="left">Stage I-II</th>
+<th align="left">Stage III</th>
+<th align="left">Stage IV</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">HCC</td>
+<td align="left">Pre-pandemic</td>
+<td align="left">114 (60%)</td>
+<td align="left">51 (27%)</td>
+<td align="left">25 (13%)</td>
+</tr>
+<tr class="even">
+<td align="left">HCC</td>
+<td align="left">Pandemic</td>
+<td align="left">70 (58%)</td>
+<td align="left">35 (29%)</td>
+<td align="left">15 (12%)</td>
+</tr>
+<tr class="odd">
+<td align="left">ICC</td>
+<td align="left">Pre-pandemic</td>
+<td align="left">21 (28%)</td>
+<td align="left">12 (16%)</td>
+<td align="left">42 (56%)</td>
+</tr>
+<tr class="even">
+<td align="left">ICC</td>
+<td align="left">Pandemic</td>
+<td align="left">3 (5%)</td>
+<td align="left">8 (12%)</td>
+<td align="left">53 (83%)</td>
+</tr>
+</tbody>
+</table>
+<p>All terms in the adjusted model:</p>
+<pre class="r"><code>cox_adj_tbl =
+  tidy_hr(cox_adj) |&gt;
+  mutate(term = pretty_terms(term))
+
+cox_adj_tbl |&gt;
+  select(term, estimate, conf.low, conf.high, p.value) |&gt;
+  mutate(p.value = fmt_p(p.value)) |&gt;
+  knitr::kable(
+    digits = 3,
+    col.names = c(&quot;Term&quot;, &quot;Hazard ratio&quot;, &quot;Lower 95% CI&quot;, &quot;Upper 95% CI&quot;, &quot;p-value&quot;)
+  )</code></pre>
+<table>
+<colgroup>
+<col width="37%" />
+<col width="17%" />
+<col width="17%" />
+<col width="17%" />
+<col width="10%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Term</th>
+<th align="right">Hazard ratio</th>
+<th align="right">Lower 95% CI</th>
+<th align="right">Upper 95% CI</th>
+<th align="left">p-value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Pandemic (vs. pre-pandemic)</td>
+<td align="right">1.048</td>
+<td align="right">0.805</td>
+<td align="right">1.365</td>
+<td align="left">0.726</td>
+</tr>
+<tr class="even">
+<td align="left">Age (per 10 years)</td>
+<td align="right">1.104</td>
+<td align="right">0.970</td>
+<td align="right">1.256</td>
+<td align="left">0.135</td>
+</tr>
+<tr class="odd">
+<td align="left">Female (vs. male)</td>
+<td align="right">1.181</td>
+<td align="right">0.890</td>
+<td align="right">1.568</td>
+<td align="left">0.250</td>
+</tr>
+<tr class="even">
+<td align="left">ICC (vs. HCC)</td>
+<td align="right">1.042</td>
+<td align="right">0.753</td>
+<td align="right">1.441</td>
+<td align="left">0.806</td>
+</tr>
+<tr class="odd">
+<td align="left">Stage III</td>
+<td align="right">2.792</td>
+<td align="right">2.012</td>
+<td align="right">3.876</td>
+<td align="left">&lt;0.001</td>
+</tr>
+<tr class="even">
+<td align="left">Stage IV</td>
+<td align="right">4.365</td>
+<td align="right">3.027</td>
+<td align="right">6.296</td>
+<td align="left">&lt;0.001</td>
+</tr>
+<tr class="odd">
+<td align="left">ECOG PS 1</td>
+<td align="right">2.726</td>
+<td align="right">1.828</td>
+<td align="right">4.067</td>
+<td align="left">&lt;0.001</td>
+</tr>
+<tr class="even">
+<td align="left">ECOG PS 2</td>
+<td align="right">4.668</td>
+<td align="right">3.026</td>
+<td align="right">7.202</td>
+<td align="left">&lt;0.001</td>
+</tr>
+<tr class="odd">
+<td align="left">ECOG PS 3-4</td>
+<td align="right">8.197</td>
+<td align="right">5.195</td>
+<td align="right">12.932</td>
+<td align="left">&lt;0.001</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code>cox_adj_tbl |&gt;
+  mutate(term = fct_rev(fct_inorder(term))) |&gt;
+  ggplot(aes(x = estimate, y = term)) +
+  geom_vline(xintercept = 1, linetype = &quot;dashed&quot;, color = &quot;grey50&quot;) +
+  geom_pointrange(aes(xmin = conf.low, xmax = conf.high)) +
+  scale_x_log10() +
+  labs(
+    x = &quot;Hazard ratio (log scale)&quot;,
+    y = NULL,
+    title = &quot;Adjusted Cox model&quot;,
+    caption = &quot;Reference levels: pre-pandemic, male, HCC, stage I-II, ECOG PS 0&quot;
+  )</code></pre>
+<p><img src="survival_files/figure-html/cox-forest-1.png" alt="" width="90%" /></p>
+</div>
+<div id="separate-models-by-cancer-type" class="section level3">
+<h3>Separate models by cancer type</h3>
+<p>These estimates are less precise, especially for ICC: only 3 pandemic
+ICC patients were diagnosed at stage I-II.</p>
+<pre class="r"><code>cox_by_type =
+  liver_df |&gt;
+  nest(data = -cancer_type) |&gt;
+  mutate(
+    model = map(data, \(df) {
+      coxph(
+        Surv(survival_months, event) ~ period + age_10 + sex + stage_group + ps_group,
+        data = df
+      )
+    }),
+    results = map(model, tidy_hr)
+  )
+
+cox_by_type |&gt;
+  select(cancer_type, results) |&gt;
+  unnest(results) |&gt;
+  filter(term == &quot;periodPandemic&quot;) |&gt;
+  arrange(cancer_type) |&gt;
+  select(cancer_type, estimate, conf.low, conf.high, p.value) |&gt;
+  mutate(p.value = fmt_p(p.value)) |&gt;
+  knitr::kable(
+    digits = 3,
+    col.names = c(&quot;Cancer&quot;, &quot;Hazard ratio (pandemic)&quot;, &quot;Lower 95% CI&quot;, &quot;Upper 95% CI&quot;, &quot;p-value&quot;)
+  )</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Cancer</th>
+<th align="right">Hazard ratio (pandemic)</th>
+<th align="right">Lower 95% CI</th>
+<th align="right">Upper 95% CI</th>
+<th align="left">p-value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">HCC</td>
+<td align="right">0.912</td>
+<td align="right">0.648</td>
+<td align="right">1.284</td>
+<td align="left">0.598</td>
+</tr>
+<tr class="even">
+<td align="left">ICC</td>
+<td align="right">1.307</td>
+<td align="right">0.845</td>
+<td align="right">2.021</td>
+<td align="left">0.229</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="proportional-hazards-assumption" class="section level3">
+<h3>Proportional hazards assumption</h3>
+<p>We check the proportional hazards assumption using Schoenfeld
+residuals. A small p-value suggests that the effect of a variable
+changes over time.</p>
+<pre class="r"><code>ph_test = cox.zph(cox_adj)
+
+as_tibble(ph_test$table, rownames = &quot;term&quot;) |&gt;
+  mutate(
+    term = recode(
+      term,
+      period = &quot;Period&quot;, age_10 = &quot;Age&quot;, sex = &quot;Sex&quot;, cancer_type = &quot;Cancer type&quot;,
+      stage_group = &quot;Stage&quot;, ps_group = &quot;ECOG PS&quot;, GLOBAL = &quot;Global test&quot;
+    )
+  ) |&gt;
+  knitr::kable(digits = 3, col.names = c(&quot;Term&quot;, &quot;Chi-square&quot;, &quot;df&quot;, &quot;p-value&quot;))</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Term</th>
+<th align="right">Chi-square</th>
+<th align="right">df</th>
+<th align="right">p-value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Period</td>
+<td align="right">0.001</td>
+<td align="right">1</td>
+<td align="right">0.972</td>
+</tr>
+<tr class="even">
+<td align="left">Age</td>
+<td align="right">0.097</td>
+<td align="right">1</td>
+<td align="right">0.755</td>
+</tr>
+<tr class="odd">
+<td align="left">Sex</td>
+<td align="right">0.022</td>
+<td align="right">1</td>
+<td align="right">0.881</td>
+</tr>
+<tr class="even">
+<td align="left">Cancer type</td>
+<td align="right">0.392</td>
+<td align="right">1</td>
+<td align="right">0.531</td>
+</tr>
+<tr class="odd">
+<td align="left">Stage</td>
+<td align="right">3.844</td>
+<td align="right">2</td>
+<td align="right">0.146</td>
+</tr>
+<tr class="even">
+<td align="left">ECOG PS</td>
+<td align="right">6.847</td>
+<td align="right">3</td>
+<td align="right">0.077</td>
+</tr>
+<tr class="odd">
+<td align="left">Global test</td>
+<td align="right">15.080</td>
+<td align="right">9</td>
+<td align="right">0.089</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code>plot(ph_test[1], resid = FALSE, main = &quot;Schoenfeld residuals: pandemic period&quot;)
+abline(h = 0, lty = 2)</code></pre>
+<p><img src="survival_files/figure-html/ph-check-1.png" alt="" width="90%" /></p>
+</div>
+</div>
+<div id="sensitivity-analysis-12-month-follow-up"
+class="section level2">
+<h2>Sensitivity Analysis: 12-Month Follow-up</h2>
+<p>To make sure that differences in potential follow-up do not drive the
+results, we censor everyone at 12 months and refit the adjusted
+model.</p>
+<pre class="r"><code>liver_12 =
+  liver_df |&gt;
+  mutate(
+    time_12 = pmin(survival_months, 12),
+    event_12 = if_else(survival_months &lt;= 12, event, 0L)
+  )
+
+cox_adj_12 = coxph(
+  Surv(time_12, event_12) ~ period + age_10 + sex + cancer_type + stage_group + ps_group,
+  data = liver_12
+)
+
+tidy_hr(cox_adj_12) |&gt;
+  filter(term == &quot;periodPandemic&quot;) |&gt;
+  select(estimate, conf.low, conf.high, p.value) |&gt;
+  mutate(p.value = fmt_p(p.value)) |&gt;
+  knitr::kable(
+    digits = 3,
+    col.names = c(&quot;Hazard ratio (pandemic)&quot;, &quot;Lower 95% CI&quot;, &quot;Upper 95% CI&quot;, &quot;p-value&quot;)
+  )</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="right">Hazard ratio (pandemic)</th>
+<th align="right">Lower 95% CI</th>
+<th align="right">Upper 95% CI</th>
+<th align="left">p-value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1.07</td>
+<td align="right">0.811</td>
+<td align="right">1.412</td>
+<td align="left">0.634</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="summary" class="section level2">
+<h2>Summary</h2>
+<ul>
+<li><strong>Unadjusted survival was somewhat lower during the pandemic,
+but the difference was not statistically significant.</strong> Median
+survival was 15.6 months before the pandemic and 9.6 months during it
+(log-rank p = 0.147; HR 1.21, 95% CI 0.93–1.57).</li>
+<li><strong>The difference is largely explained by later-stage
+presentation.</strong> After adjusting for age, sex, cancer type, stage
+and performance status, the pandemic hazard ratio was close to 1 (HR
+1.05, 95% CI 0.81–1.36). Stage and performance status were by far the
+strongest predictors of death.</li>
+<li><strong>By cancer type,</strong> survival in HCC was nearly
+identical across periods (log-rank p = 0.961; adjusted HR 0.91, 95% CI
+0.65–1.28). ICC patients diagnosed during the pandemic had clearly worse
+unadjusted survival (log-rank p = 0.028; HR 1.57, 95% CI 1.05–2.36).
+After adjustment the hazard ratio was smaller and no longer
+statistically significant (HR 1.31, 95% CI 0.85–2.02), in line with the
+large shift toward stage IV ICC, although a modest remaining excess risk
+cannot be ruled out.</li>
+<li><strong>The result is robust to follow-up length.</strong> Censoring
+everyone at 12 months gave a similar adjusted estimate (HR 1.07, 95% CI
+0.81–1.41), and there was no evidence that the pandemic effect violated
+proportional hazards (p = 0.972).</li>
+</ul>
+<p>Overall, these data suggest the pandemic affected liver cancer
+outcomes mainly through <strong>delayed, later-stage diagnosis</strong>
+rather than through worse survival among patients diagnosed at the same
+stage. The study is small and from a single centre, so the confidence
+intervals are wide and modest effects cannot be ruled out.</p>
 </div>
 
 
